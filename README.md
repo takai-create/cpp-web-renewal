@@ -88,7 +88,31 @@ npm start
 - GitHub Projectsでプロジェクト管理
 - Issueテンプレート使用
 - PR テンプレート使用
-- GitHub Actions での自動テスト・デプロイ（検討中）
+- GitHub Actions での自動テスト・ビルド・デプロイ
+
+### GitHub Actions
+本リポジトリには以下のワークフローがあります。
+
+- `.github/workflows/lint.yml` - PR と push 時に ESLint と型チェックを実行
+- `.github/workflows/ci.yml` - push と PR 時に Lint、型チェック、ビルドを実行
+- `.github/workflows/pages.yml` - `main` への push 時に GitHub Pages へ自動デプロイ
+
+### GitHub リモート接続
+ローカルから GitHub に接続する例：
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/cpp-web-renewal.git
+git branch -M main
+git push -u origin main
+git push -u origin develop
+```
+
+### GitHub Pages デプロイ
+`main` への push によって、Next.js の静的エクスポートがビルドされ、GitHub Pages へ公開できます。
+
+1. GitHub リポジトリの **Settings > Pages** を開く
+2. **Source** で **GitHub Actions** を選択
+3. 保存して公開を開始
 
 ## ドキュメント
 詳細は `docs/` ディレクトリを参照してください。
