@@ -28,6 +28,8 @@ git remote add origin https://github.com/YOUR_USERNAME/cpp-web-renewal.git
 git remote add origin git@github.com:YOUR_USERNAME/cpp-web-renewal.git
 ```
 
+> このリポジトリには現時点でリモートが設定されていません。上記コマンドを実行してから、`main` と `develop` をプッシュしてください。
+
 ### 3. ブランチをリモートにプッシュ
 
 ```bash
