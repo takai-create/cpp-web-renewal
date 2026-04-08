@@ -31,13 +31,39 @@ git remote add origin git@github.com:YOUR_USERNAME/cpp-web-renewal.git
 ### 3. ブランチをリモートにプッシュ
 
 ```bash
-# master ブランチをプッシュ
+# ローカルブランチを main に揃える（必要な場合）
 git branch -M main
+
 git push -u origin main
 
 # develop ブランチをプッシュ
 git push -u origin develop
 ```
+
+### 4. デフォルトブランチを develop に変更
+
+1. GitHub リポジトリの **Settings** を開く
+2. 左側メニューの **Branches** を選択
+3. **Default branch** を `develop` に変更
+
+> `develop` をデフォルトにすることで、Feature ブランチの開発フローを `develop` ベースで統一できます。
+
+## GitHub Actions を追加する
+
+このリポジトリには、以下の GitHub Actions ワークフローが用意されています。
+
+- `.github/workflows/lint.yml`: PR と push で ESLint と型チェックを実行
+- `.github/workflows/ci.yml`: push と PR で Lint、型チェック、ビルドを実行
+- `.github/workflows/pages.yml`: `main` への push 時に `npm run export` を実行し、GitHub Pages へデプロイ
+
+### GitHub Pages の有効化
+
+1. GitHub リポジトリの **Settings** を開く
+2. 左側メニューの **Pages** を選択
+3. **Source** で **GitHub Actions** を選択
+4. **Save** をクリック
+
+> `main` への push によって、自動的に static export をビルドして GitHub Pages へ公開できます。
 
 ## GitHub で求められるやること
 
