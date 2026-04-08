@@ -14,21 +14,31 @@
 - ✅ **GitHub テンプレート** 作成
   - Issue テンプレート（バグ報告・機能リクエスト）
   - Pull Request テンプレート
-- ✅ **GitHub Actions** 初期設定（Lint チェック）
+- ✅ **GitHub Actions** 初期設定
+  - Lint チェック（`.github/workflows/lint.yml`）
+  - CI パイプライン（`.github/workflows/ci.yml`）
+  - GitHub Pages デプロイ（`.github/workflows/pages.yml`）
+- ✅ **GitHub リモート接続完了**
+  - リポジトリ URL: `https://github.com/takai-create/cpp-web-renewal`
+  - `main` ブランチをプッシュ ✅
+  - `develop` ブランチをプッシュ ✅
 
 ### ドキュメント
-- ✅ **README.md** - プロジェクト概要
+- ✅ **README.md** - プロジェクト概要・GitHub Actions・デプロイ情報
 - ✅ **STRUCTURE.md** - ディレクトリ構成
 - ✅ **DEVELOPMENT.md** - 開発ガイド
 - ✅ **PROJECT_PLAN.md** - プロジェクト計画書
 - ✅ **GITHUB_SETUP.md** - GitHub 連携方法
 - ✅ **VSCODE_EXTENSIONS.md** - 推奨拡張機能
+- ✅ **SITE_STRUCTURE_PLAN.md** - サイト構成検討ドキュメント
 
 ### 開発環境
 - ✅ **.vscode/settings.json** - VS Code 設定
 - ✅ **.vscode/extensions.json** - 推奨拡張機能リスト
+- ✅ **prettier/.prettierrc** - コード整形設定
 - ✅ **.gitignore** - Git除外ファイル設定
 - ✅ **.env.example** - 環境変数テンプレート
+- ✅ **next.config.js** - Next.js 静的エクスポート設定
 
 ---
 
@@ -41,35 +51,37 @@ cpp_web_ren/
 │   │   ├── bug_report.md
 │   │   └── feature_request.md
 │   ├── workflows/              # GitHub Actions
-│   │   └── lint.yml            # Lint チェック（自動実行）
+│   │   ├── lint.yml            # Lint チェック
+│   │   ├── ci.yml              # CI パイプライン
+│   │   └── pages.yml           # GitHub Pages デプロイ
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .vscode/                    # VS Code 設定
 │   ├── extensions.json         # 推奨拡張機能
 │   └── settings.json           # エディタ設定
 ├── app/                        # Next.js App Router
-│   ├── layout.tsx              # ルートレイアウト（メタデータ設定）
+│   ├── layout.tsx              # ルートレイアウト
 │   └── page.tsx                # ホームページ
-├── components/                 # React コンポーネント（準備中）
-│   └── .gitkeep
+├── components/                 # React コンポーネント（開発予定地）
 ├── public/                     # 静的アセット
-│   └── .gitkeep
 ├── docs/                       # ドキュメント
 │   ├── DEVELOPMENT.md          # 開発ガイド
 │   ├── GITHUB_SETUP.md         # GitHub 連携ガイド
 │   ├── PROJECT_PLAN.md         # プロジェクト計画
+│   ├── SITE_STRUCTURE_PLAN.md  # サイト構成検討
 │   ├── STRUCTURE.md            # ディレクトリ構造
-│   ├── VSCODE_EXTENSIONS.md    # 拡張機能ガイド
-│   └── README.md               # このファイル
+│   └── VSCODE_EXTENSIONS.md    # 拡張機能ガイド
 ├── .env.example                # 環境変数テンプレート
 ├── .eslintrc.json              # ESLint 設定
 ├── .gitignore                  # Git 除外設定
-├── next.config.js              # Next.js 設定
+├── .prettierrc                 # Prettier 設定
+├── next.config.js              # Next.js 設定（静的エクスポート有効）
 ├── package.json                # npm パッケージ定義
+├── package-lock.json           # 依存関係ロック
 ├── tsconfig.json               # TypeScript 設定
 └── README.md                   # プロジェクト説明
 
-Git ブランチ:
-- main       # 本番環境（保護）
+GitHub ブランチ:
+- main       # 本番環境（GitHub Pages 自動デプロイ）
 - develop    # 開発メイン（新機能フォーカス）
 ```
 
@@ -77,34 +89,14 @@ Git ブランチ:
 
 ## 🎯 次のステップ
 
-### 1. ローカル環境セットアップ（必要な場合）
+### 1. GitHub 設定の仕上げ（オプション）
 ```bash
-cd cpp_web_ren
-npm install
-npm run dev
-```
-開発サーバー: http://localhost:3000
-
-### 2. GitHub リポジトリ作成・連携
-[docs/GITHUB_SETUP.md](docs/GITHUB_SETUP.md) を参照して以下を実施：
-- GitHub に新しいリポジトリを作成
-- ローカルリポジトリをリモートに接続
-- main と develop ブランチをプッシュ
-
-コマンド例：
-```bash
-git remote add origin https://github.com/YOUR_USERNAME/cpp-web-renewal.git
-git branch -M main
-git push -u origin main
-git push -u origin develop
+# GitHub で手動設定
+- Settings > Branches > Default branch を develop に変更（推奨）
+- Settings > Pages で確認（GitHub Actions で自動配信予定）
 ```
 
-### 3. GitHub 設定
-- **デフォルトブランチ**: develop に変更推奨
-- **ブランチ保護ルール**: main に PR マージルール設定推奨
-- **チームメンバー**: Collaborators に追加
-
-### 4. VS Code 拡張機能をインストール
+### 2. VS Code 拡張機能をインストール
 推奨拡張機能：
 - ESLint
 - Prettier
@@ -113,14 +105,14 @@ git push -u origin develop
 - GitHub Copilot
 - GitHub Copilot Chat
 
-### 5. プロジェクト計画に従って開発開始
-[docs/PROJECT_PLAN.md](docs/PROJECT_PLAN.md) のフェーズ別に進行：
-- **Phase 1**: デザイン・構成確認 🚀
-- **Phase 2**: 共通コンポーネント開発
-- **Phase 3**: ページ開発
-- **Phase 4**: 機能・最適化
-- **Phase 5**: テスト・品質保証
-- **Phase 6**: デプロイ準備
+### 3. サイト構成検討を開始
+`docs/SITE_STRUCTURE_PLAN.md` を参照しながら：
+- ページ一覧の決定
+- ナビゲーション構造の設計
+- 各ページの目的・コンテンツを整理
+
+### 4. 開発開始
+`docs/PROJECT_PLAN.md` に沿いながら Phase 2（共通コンポーネント）から開発開始
 
 ---
 
@@ -131,6 +123,7 @@ git push -u origin develop
 | [README.md](README.md) | プロジェクト概要 | 全員 |
 | [DEVELOPMENT.md](docs/DEVELOPMENT.md) | 開発ガイド・ワークフロー | 開発者 |
 | [PROJECT_PLAN.md](docs/PROJECT_PLAN.md) | 全体計画・チェックリスト | PM・開発者 |
+| [SITE_STRUCTURE_PLAN.md](docs/SITE_STRUCTURE_PLAN.md) | サイト構成検討 | PM・開発者 |
 | [STRUCTURE.md](docs/STRUCTURE.md) | ディレクトリ構成 | 開発者 |
 | [GITHUB_SETUP.md](docs/GITHUB_SETUP.md) | GitHub 連携方法 | リード開発者 |
 | [VSCODE_EXTENSIONS.md](docs/VSCODE_EXTENSIONS.md) | 拡張機能ガイド | 全員 |
@@ -139,26 +132,33 @@ git push -u origin develop
 
 ## 🔗 重要なリンク
 
-- **GitHub**: リポジトリ URL（セットアップ後に追加）
+- **GitHub Repository**: https://github.com/takai-create/cpp-web-renewal
+- **GitHub Pages**: (デプロイ後に自動生成)
 - **Next.js Docs**: https://nextjs.org/
 - **React Docs**: https://react.dev/
 - **TypeScript Docs**: https://www.typescriptlang.org/
 
 ---
 
-## 💬 サポート・質問
+## 💬 開発フロー
 
-プロジェクト実施中に質問や問題がある場合：
-1. **GitHub Discussions** でチーム内で相談
-2. **Issues** で タスク・バグを追跡
-3. **PR** でコードレビュー
+1. **Issue** で要件を定義
+2. **Feature ブランチ** を作成 (`feature/issue-XXX-description`)
+3. ローカルで開発 (`git checkout develop && git checkout -b feature/...`)
+4. **Lint/型チェック** を実施 (`npm run lint`, `npm run type-check`)
+5. **Commit** は Conventional Commits に従う
+6. **Push** してから `develop` へ PR を作成
+7. レビュー後マージ
+8. 定期的に `main` へマージして GitHub Pages 更新
 
 ---
 
-## ✨ 準備完了！
+## ✨ セットアップ完了！
 
-プロジェクトの基盤準備が完了しました。
-GitHub 連携設定が終わったら、開発を開始できます。
+✅ **プロジェクト基盤の準備が整いました。**
+
+📋 次は `docs/SITE_STRUCTURE_PLAN.md` を読みながら、
+サイト構成検討と開発計画を進めてください。
 
 Happy Coding! 🚀
 
