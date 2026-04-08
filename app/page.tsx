@@ -17,18 +17,19 @@ export default function Home() {
       <section id="hero" className="hero">
         <div className="hero-inner">
           <p className="hero-highlight">AI × 人 × 信頼</p>
-          <h1>AIが動き、人が深める。</h1>
+          <h1>AIが動き、<br />人が深める。</h1>
           <p>
-            思想で事業を束ねるコーポレートサイト。DX、AI SaaS、コワーキングを横断し、
-            新たな価値を共創します。
+            企業の思想を軸に、DX・AI SaaS・コワーキングをつなぐ
+            コーポレートサイト。出会いをビジネスへと変える価値の循環を
+            デザインします。
           </p>
           <div className="hero-actions">
-            <button className="btn-primary" type="button">
+            <a className="btn-primary" href="#contact">
               お問い合わせ
-            </button>
-            <button className="btn-secondary" type="button">
+            </a>
+            <a className="btn-secondary" href="#services">
               事業を見る
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -36,9 +37,9 @@ export default function Home() {
       <section id="about" className="section-inner">
         <h2 className="section-title">企業・ブランドストーリー</h2>
         <p className="section-copy">
-          Crowd Power Partnersは、2013年設立以来、東京と新潟を拠点にDXとAIを軸にした
-          事業を展開しています。私たちは、テクノロジーと人の知恵をつなぎ、
-          社会とビジネスの新しい可能性を描きます。
+          Crowd Power Partnersは、2013年設立以来、東京と新潟を拠点にDXとAIを
+          中心とした事業とブランドを育ててきました。技術と人の創造力を掛け合わせて、
+          企業の新しい価値づくりを支えます。
         </p>
         <div className="split-row">
           <div className="split-card">
@@ -67,22 +68,22 @@ export default function Home() {
           <article className="card">
             <h3>DXコンサルティング</h3>
             <p>
-              企業の業務改革とデジタル変革を支援。戦略立案から実行まで、
-              価値創造を並走します。
+              経営課題をデジタルで解きほぐし、現場と経営をつなぐ
+              戦略と実行支援を提供します。
             </p>
           </article>
           <article className="card">
             <h3>Talk Insights</h3>
             <p>
-              名刺交換後の会話を機械学習・自動化でつなぎ、
-              フォローアップを次の商談へと導きます。
+              商談後の会話をAIで分析し、次のアクションを自動生成する
+              フォローアップサービスです。
             </p>
           </article>
           <article className="card">
             <h3>コワーキング新潟弁天</h3>
             <p>
-              24時間無人運営の拠点。地域・ビジネス・創造を交差させ、
-              新しい働き方を提供します。
+              24時間無人運営の拠点で、地域とビジネスをつなぎ、
+              新しい働き方と出会いの場を創出します。
             </p>
           </article>
         </div>
@@ -92,7 +93,7 @@ export default function Home() {
         <h2 className="section-title">Talk Insights</h2>
         <p className="section-copy">
           「出会いを商談に変える。話すだけ。」
-          ネットワーキング後の音声を起点に、次のアクションを自動生成するSaaSサービスです。
+          名刺交換後の会話を起点に、次の一歩を逃さずつなぐAI SaaSです。
         </p>
         <div className="grid-3">
           <article className="card">
@@ -119,8 +120,8 @@ export default function Home() {
       <section id="coworking" className="section-inner">
         <h2 className="section-title">コワーキング新潟弁天</h2>
         <p className="section-copy">
-          新潟に根差す無人運営拠点。24時間利用可能で、
-          個人の創造活動とビジネスの接点を生み出します。
+          新潟に根ざした無人運営拠点。24時間利用できる環境で、
+          個人と企業のクリエイティブな出会いを生み出します。
         </p>
         <div className="split-row">
           <div className="card">
@@ -137,7 +138,8 @@ export default function Home() {
       <section id="trust" className="section-inner">
         <h2 className="section-title">信頼と実績</h2>
         <p className="section-copy">
-          DX推進、AI活用、無人運営の領域で、企業と個人の成果を支えてきました。
+          DX推進、AI導入、無人運営の経験をもとに、
+          企業と地域の価値創造を支援しています。
         </p>
         <div className="trust-list">
           <div className="trust-item">
@@ -158,7 +160,8 @@ export default function Home() {
       <section id="news" className="section-inner">
         <h2 className="section-title">最新情報</h2>
         <p className="section-copy">
-          企業の取り組みや新しい発信を定期的にお届けします。
+          事業の最新情報、サービスのアップデート、
+          地域連携の取り組みをお届けします。
         </p>
         <div className="news-list">
           <div className="news-item">
@@ -180,7 +183,8 @@ export default function Home() {
         <div className="section-inner">
           <h2 className="section-title">お問い合わせ</h2>
           <p className="section-copy" style={{ color: "#e2e8f0" }}>
-            事業連携、採用、資料請求など、お気軽にご相談ください。
+            事業連携、採用、資料請求など、
+            まずはお気軽にご相談ください。
           </p>
           <div className="cta-grid">
             <div className="cta-card">
