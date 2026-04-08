@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "コーポレートサイト | 企業名",
-  description: "企業の公式ウェブサイトです",
-  keywords: ["企業", "サービス", "コーポレートサイト"],
+  title: "Crowd Power Partners | AIが動き、人が深める。",
+  description: "Crowd Power Partnersのコーポレートサイト。DX、AI SaaS、コワーキングの事業を思想でつなぐ。",
+  keywords: ["Crowd Power Partners", "DX", "AI", "コワーキング", "コーポレートサイト"],
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    url: "https://example.com",
-    title: "コーポレートサイト | 企業名",
-    description: "企業の公式ウェブサイトです",
+    url: "https://crowdpower-partners.com",
+    title: "Crowd Power Partners | AIが動き、人が深める。",
+    description: "Crowd Power Partnersのコーポレートサイト。DX、AI SaaS、コワーキングの事業を思想でつなぐ。",
     images: [
       {
-        url: "https://example.com/og-image.png",
+        url: "https://crowdpower-partners.com/og-image.png",
         width: 1200,
         height: 630,
       },
