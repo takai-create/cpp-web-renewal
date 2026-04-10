@@ -1,0 +1,216 @@
+{
+  "site": {
+    "name": "Crowd Power Partners",
+    "tagline": "AIが動き、人が深める。",
+    "copyright": "© 2025 Crowd Power Partners Inc. All rights reserved."
+  },
+
+  "nav": {
+    "about": "私たちについて",
+    "business": "事業紹介",
+    "news": "ニュース",
+    "careers": "採用情報",
+    "contact": "お問い合わせ"
+  },
+
+  "hero": {
+    "slides": [
+      {
+        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80",
+        "copy": "AIが動き、人が深める。",
+        "sub": "テクノロジーの力を、人の知恵で事業に変える。\nCrowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。"
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80",
+        "copy": "仕組みで、人を自由にする。",
+        "sub": "DXコンサルティングで組織の可能性を開き、\nテクノロジーを現場に届けます。"
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=80",
+        "copy": "出会いを、商談に変える。",
+        "sub": "Talk Insightsは、名刺交換後の会話から\n次のビジネスチャンスを自動で創り出します。"
+      }
+    ],
+    "ctaPrimary": "お問い合わせ",
+    "ctaSecondary": "事業を見る"
+  },
+
+  "philosophy": {
+    "label": "Philosophy",
+    "paragraphs": [
+      "AIは手段であり、目的ではない。\nテクノロジーが動かす仕組みと、\n人が深める関係の両方があって、\nはじめて事業は意味を持つ。",
+      "Crowd Power Partnersは、\nその交差点に立ち続けます。"
+    ],
+    "link": "私たちについて"
+  },
+
+  "businessSection": {
+    "label": "Business",
+    "title": "事業紹介",
+    "items": [
+      {
+        "name": "DXコンサルティング",
+        "catch": "テクノロジーで、組織の可能性を開く",
+        "desc": "Google Workspace リセラーを含むDX支援。中小〜中堅企業の業務改革と組織変革を実現します。",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+        "href": "/v2/business#dx"
+      },
+      {
+        "name": "Talk Insights",
+        "catch": "出会いを商談に変える。話すだけ。",
+        "desc": "名刺交換後の音声メモをAIが要約し、Gmailでフォローアップメールを自動生成するAI SaaS。",
+        "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
+        "href": "/v2/business#talk-insights"
+      },
+      {
+        "name": "コワーキング新潟弁天",
+        "catch": "24時間、無人で動く。あなたの仕事場。",
+        "desc": "24時間無人運営のコワーキングスペース。地域とビジネスをつなぎ、新しい働き方の場を創出します。",
+        "image": "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=800&q=80",
+        "href": "/v2/business#coworking"
+      }
+    ]
+  },
+
+  "numbers": [
+    { "value": "2013", "label": "年設立" },
+    { "value": "3", "label": "事業領域" },
+    { "value": "2", "label": "拠点" },
+    { "value": "24h", "label": "無人運営" }
+  ],
+
+  "news": {
+    "title": "ニュース",
+    "moreLink": "一覧を見る →",
+    "items": [
+      { "date": "2025.04.01", "tag": "お知らせ", "title": "コーポレートサイトをリニューアルしました" },
+      { "date": "2025.03.15", "tag": "プレス", "title": "Talk Insights 正式リリースのお知らせ" },
+      { "date": "2025.03.01", "tag": "お知らせ", "title": "コワーキング新潟弁天がオープンしました" }
+    ]
+  },
+
+  "cta": {
+    "title": "AIと人の交差点から、一緒に始めませんか。",
+    "items": [
+      { "title": "事業について相談する", "desc": "パートナーシップや事業相談はこちらから。", "href": "/contact?type=business" },
+      { "title": "採用情報を見る", "desc": "共に未来を創る仲間を募集しています。", "href": "/contact?type=careers", "id": "careers" },
+      { "title": "資料請求", "desc": "サービスや事業について、詳しい資料をご用意します。", "href": "/contact?type=document" }
+    ]
+  },
+
+  "footer": {
+    "columns": [
+      {
+        "title": "ニュース",
+        "links": [
+          { "label": "プレスリリース", "href": "/news" },
+          { "label": "お知らせ", "href": "/news" },
+          { "label": "メディア掲載", "href": "/news" }
+        ]
+      },
+      {
+        "title": "企業情報",
+        "links": [
+          { "label": "私たちについて", "href": "/about" },
+          { "label": "代表メッセージ", "href": "/about" },
+          { "label": "会社概要・アクセス", "href": "/about" },
+          { "label": "沿革", "href": "/about" }
+        ]
+      },
+      {
+        "title": "事業・サービス",
+        "links": [
+          { "label": "DXコンサルティング", "href": "/v2/business#dx" },
+          { "label": "Talk Insights", "href": "/v2/business#talk-insights" },
+          { "label": "コワーキング新潟弁天", "href": "/v2/business#coworking" }
+        ]
+      },
+      {
+        "title": "お問い合わせ・採用",
+        "links": [
+          { "label": "お問い合わせ", "href": "/contact" },
+          { "label": "採用情報", "href": "/careers" },
+          { "label": "募集職種", "href": "/careers" }
+        ]
+      }
+    ],
+    "legal": [
+      { "label": "プライバシーポリシー", "href": "/privacy" },
+      { "label": "利用規約", "href": "/terms" }
+    ]
+  },
+
+  "businessPage": {
+    "label": "Business",
+    "title": "事業紹介",
+    "subtitle": "テクノロジー × 人 × 場 で、事業を創る",
+    "ctaTitle": "まずはお気軽にご相談ください。",
+    "ctaItems": [
+      { "title": "事業について相談する", "desc": "パートナーシップや事業相談はこちらから。", "href": "/contact?type=business" },
+      { "title": "資料請求", "desc": "サービスや事業について、詳しい資料をご用意します。", "href": "/contact?type=document" },
+      { "title": "お問い合わせ", "desc": "その他のお問い合わせはこちらから。", "href": "/contact" }
+    ],
+    "services": [
+      {
+        "id": "dx",
+        "number": "01",
+        "category": "DXコンサルティング",
+        "name": "DXコンサルティング",
+        "headline": "テクノロジーで、組織の可能性を開く",
+        "description": "デジタル化が進んでいない中小〜中堅企業に対し、Google Workspaceをはじめとするクラウドツールの導入・運用支援を提供。業務フローの見直しから組織変革まで、現場に寄り添った伴走型のDX支援を行っています。",
+        "features": [
+          { "title": "Google Workspace リセラー", "desc": "導入設計から運用定着まで、GWSの活用を一気通貫で支援します。" },
+          { "title": "業務プロセス改善", "desc": "既存業務のデジタル化と自動化により、組織の生産性を向上させます。" },
+          { "title": "DX戦略策定", "desc": "経営課題に合わせたDXロードマップの策定と実行を支援します。" }
+        ],
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+        "news": [
+          { "date": "2025/04/03", "title": "GWS導入支援の新プランを発表しました" },
+          { "date": "2025/03/15", "title": "中小企業DX推進セミナーを開催" }
+        ],
+        "link": "/contact?type=dx",
+        "linkLabel": "DXについて相談する"
+      },
+      {
+        "id": "talk-insights",
+        "number": "02",
+        "category": "AI SaaS",
+        "name": "Talk Insights",
+        "headline": "出会いを商談に変える。話すだけ。",
+        "description": "名刺交換後に音声メモを録音するだけで、AIが会話内容を要約し、Gmailでフォローアップメールの下書きを自動生成。ネットワーキングが活発な中小企業オーナー・士業・専門職の方に向けた、商談化率を高めるAI SaaSです。",
+        "features": [
+          { "title": "音声メモから自動要約", "desc": "名刺交換後の短い会話を録音し、AIが要点を即座にまとめます。" },
+          { "title": "Gmailフォローアップ自動生成", "desc": "要約をもとに、パーソナライズされたフォローメールの下書きを生成します。" },
+          { "title": "月額¥800〜の手軽さ", "desc": "個人事業主や小規模チームでも導入しやすい価格設計です。" }
+        ],
+        "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80",
+        "news": [
+          { "date": "2025/03/15", "title": "Talk Insights 正式リリースのお知らせ" },
+          { "date": "2025/02/20", "title": "ベータ版ユーザー1,000名を突破" }
+        ],
+        "link": "/contact?type=talk-insights",
+        "linkLabel": "詳細はこちら"
+      },
+      {
+        "id": "coworking",
+        "number": "03",
+        "category": "コワーキングスペース",
+        "name": "コワーキング新潟弁天",
+        "headline": "24時間、無人で動く。あなたの仕事場。",
+        "description": "新潟・弁天エリアに位置する24時間無人運営のコワーキングスペース。スマートロックによる入退室管理で、時間に縛られない柔軟な働き方を実現。地域のビジネスパーソンや起業家のコミュニティ拠点として機能しています。",
+        "features": [
+          { "title": "24時間無人運営", "desc": "スマートロックとキャッシュレス決済で、完全無人での運営を実現しています。" },
+          { "title": "コミュニティ拠点", "desc": "地域の起業家・フリーランスが集まり、新しいビジネスが生まれる場を提供します。" },
+          { "title": "柔軟な料金プラン", "desc": "ドロップイン・月額会員など、利用スタイルに合わせたプランを用意しています。" }
+        ],
+        "image": "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=1200&q=80",
+        "news": [
+          { "date": "2025/03/01", "title": "コワーキング新潟弁天がオープンしました" },
+          { "date": "2025/02/15", "title": "オープニングイベントの参加者募集を開始" }
+        ],
+        "link": "/contact?type=coworking",
+        "linkLabel": "利用を申し込む"
+      }
+    ]
+  }
+}
