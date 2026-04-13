@@ -144,6 +144,48 @@
     ]
   },
 
+  "contactPage": {
+    "label": "Contact",
+    "title": "お問い合わせ",
+    "subtitle": "事業相談・採用・取材・資料請求まで、お気軽にご連絡ください。",
+    "formAction": "",
+    "fields": {
+      "name": "お名前",
+      "company": "会社名・所属組織",
+      "url": "ウェブサイトURL",
+      "email": "メールアドレス",
+      "tel": "電話番号",
+      "type": "お問い合わせ種別",
+      "message": "お問い合わせ内容",
+      "privacy": "プライバシーポリシーに同意する",
+      "submit": "送信する",
+      "required": "必須",
+      "optional": "任意"
+    },
+    "types": [
+      { "value": "business", "label": "事業について相談する" },
+      { "value": "careers", "label": "採用について問い合わせる" },
+      { "value": "partnership", "label": "パートナーシップ・協業相談" },
+      { "value": "media", "label": "取材・メディア掲載" },
+      { "value": "document", "label": "資料請求" },
+      { "value": "disclosure", "label": "個人情報の開示・訂正・削除請求" },
+      { "value": "other", "label": "その他" }
+    ],
+    "officesTitle": "オフィス",
+    "offices": [
+      {
+        "name": "本社",
+        "zip": "〒105-0004",
+        "address": "東京都港区新橋2-20-15 新橋駅前ビル1号館6階"
+      },
+      {
+        "name": "新潟支社",
+        "zip": "〒950-0901",
+        "address": "新潟県新潟市中央区弁天2-1-1 弁天ビル5F"
+      }
+    ]
+  },
+
   "aboutPage": {
     "label": "About",
     "title": "私たちについて",
