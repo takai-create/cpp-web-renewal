@@ -21,13 +21,20 @@ export default function Header() {
   const link = (anchor: string) => (isTop ? `#${anchor}` : `/v2#${anchor}`);
   const close = () => setMenuOpen(false);
 
+  // 透過ヒーロー上（トップページ・スクロール前）は白ロゴ
+  // それ以外（スクロール後 or 下層ページ）はカラーロゴ
+  const useWhiteLogo = isTop && !scrolled;
+  const logoSrc = useWhiteLogo
+    ? "/images/logo/logo-horizontal-white.png"
+    : "/images/logo/logo-horizontal-color.png";
+
   return (
     <header
       className={`v2-header ${!isTop ? "v2-header--solid" : ""} ${scrolled ? "v2-header--scrolled" : ""}`}
     >
       <div className="v2-header__inner">
-        <a href="/v2" className="v2-header__logo">
-          {site.name}
+        <a href="/v2" className="v2-header__logo" aria-label={site.name}>
+          <img src={logoSrc} alt={site.name} className="v2-header__logo-img" />
         </a>
         <nav className={`v2-header__nav ${menuOpen ? "v2-header__nav--open" : ""}`}>
           <a href={link("about")} className="v2-header__link" onClick={close}>

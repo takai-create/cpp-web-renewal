@@ -8,7 +8,11 @@ export default function Footer() {
       <div className="v2-footer__inner">
         <div className="v2-footer__grid">
           <div className="v2-footer__brand">
-            <p className="v2-footer__logo">{site.name}</p>
+            <img
+              src="/images/logo/logo-horizontal-white.png"
+              alt={site.name}
+              className="v2-footer__logo-img"
+            />
             <p className="v2-footer__tagline">{site.tagline}</p>
           </div>
           {footer.columns.map((col) => (

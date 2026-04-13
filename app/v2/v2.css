@@ -48,15 +48,20 @@
 }
 
 .v2-header__logo {
-  font-family: var(--v2-font);
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: #fff;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  transition: color 0.3s;
-  white-space: nowrap;
+  line-height: 0;
 }
-.v2-header--scrolled .v2-header__logo { color: var(--v2-dark); }
+.v2-header__logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+  transition: opacity 0.3s;
+}
+@media (max-width: 767px) {
+  .v2-header__logo-img { height: 32px; }
+}
 
 .v2-header__nav {
   display: flex;
@@ -571,11 +576,11 @@
 
 .v2-footer__brand { max-width: 260px; }
 
-.v2-footer__logo {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.5rem;
+.v2-footer__logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+  margin-bottom: 0.75rem;
 }
 
 .v2-footer__tagline {
