@@ -129,7 +129,11 @@ export default function HomeV2() {
                     <img src={biz.image} alt={biz.name} loading="lazy" />
                   </div>
                   <div className="v2-biz-item__body">
-                    <h3 className="v2-biz-item__name">{biz.name}</h3>
+                    {biz.category && <p className="v2-biz-item__category">{biz.category}</p>}
+                    <h3 className="v2-biz-item__name">
+                      {biz.name}
+                      {biz.nameNote && <span className="v2-biz-item__name-note"> {biz.nameNote}</span>}
+                    </h3>
                     <p className="v2-biz-item__catch">{biz.catch}</p>
                     <p className="v2-biz-item__desc">{biz.desc}</p>
                   </div>

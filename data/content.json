@@ -2,7 +2,7 @@
   "site": {
     "name": "Crowd Power Partners",
     "tagline": "AIが動き、人が深める。",
-    "copyright": "© 2025 Crowd Power Partners Inc. All rights reserved."
+    "copyright": "© Crowd Power Partners Inc. All rights reserved."
   },
 
   "nav": {
@@ -49,6 +49,7 @@
     "title": "事業紹介",
     "items": [
       {
+        "category": "エキスパート支援",
         "name": "DXコンサルティング",
         "catch": "テクノロジーで、組織の可能性を開く",
         "desc": "Google Workspace リセラーを含むDX支援。中小〜中堅企業の業務改革と組織変革を実現します。",
@@ -56,13 +57,16 @@
         "href": "/v2/business#dx"
       },
       {
-        "name": "Talk Insights",
+        "category": "AIプラットフォーム",
+        "name": "First Touch",
+        "nameNote": "by Talk Insights",
         "catch": "出会いを商談に変える。話すだけ。",
         "desc": "名刺交換後の音声メモをAIが要約し、Gmailでフォローアップメールを自動生成するAI SaaS。",
         "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
         "href": "/v2/business#talk-insights"
       },
       {
+        "category": "ワークスペース",
         "name": "コワーキング新潟弁天",
         "catch": "24時間、無人で動く。あなたの仕事場。",
         "desc": "24時間無人運営のコワーキングスペース。地域とビジネスをつなぎ、新しい働き方の場を創出します。",
