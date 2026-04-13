@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "../components/v2/Header";
+import Footer from "../components/v2/Footer";
 
 export const metadata: Metadata = {
   title: "Crowd Power Partners | AIが動き、人が深める。",
   description:
-    "DXコンサルティング、AI SaaS、コワーキングを展開。テクノロジーと人の力で事業を創る。",
+    "DXコンサルティング、AI営業プラットフォーム「First Touch by Talk Insights」、コワーキング新潟弁天を展開。テクノロジーと人の力で事業を創る。",
   keywords: [
     "Crowd Power Partners",
-    "DX",
-    "AI",
+    "クラウドパワーパートナーズ",
+    "DXコンサルティング",
+    "AI営業",
+    "First Touch",
+    "Talk Insights",
     "コワーキング",
-    "コーポレートサイト",
+    "新潟",
   ],
   openGraph: {
     type: "website",
@@ -18,7 +23,7 @@ export const metadata: Metadata = {
     url: "https://crowdpower-partners.com",
     title: "Crowd Power Partners | AIが動き、人が深める。",
     description:
-      "DXコンサルティング、AI SaaS、コワーキングを展開。テクノロジーと人の力で事業を創る。",
+      "DXコンサルティング、AI営業プラットフォーム「First Touch by Talk Insights」、コワーキング新潟弁天を展開。",
     images: [
       {
         url: "https://crowdpower-partners.com/og-image.png",
@@ -48,7 +53,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

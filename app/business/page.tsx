@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import "./business.css";
-import content from "../../../data/content.json";
+import content from "../../data/content.json";
 
 const { businessPage } = content;
 

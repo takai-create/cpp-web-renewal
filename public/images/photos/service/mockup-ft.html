@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Touch by Talk Insights - モックアップ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes taglineFade { 0%,30% { opacity: 1; transform: translateY(0); } 33%,100% { opacity: 0; transform: translateY(12px); } }
+  .tagline-1 { animation: taglineFade 15s infinite 0s; }
+  .tagline-2 { animation: taglineFade 15s infinite 5s; }
+  .tagline-3 { animation: taglineFade 15s infinite 10s; }
+</style>
+</head>
+<body class="font-sans">
+
+<!-- ============================================ -->
+<!-- /first-touch — FT専用LP -->
+<!-- ============================================ -->
+<section class="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 relative overflow-hidden">
+
+  <!-- 背景 -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-400/10 rounded-full blur-2xl"></div>
+  </div>
+
+  <!-- ナビバー: First Touch が主役 -->
+  <nav class="relative z-20 flex items-center justify-between px-6 lg:px-12 py-4">
+    <div>
+      <div class="flex items-baseline gap-2">
+        <span class="text-white font-bold text-xl tracking-tight">First Touch</span>
+      </div>
+      <p class="text-blue-300/50 text-[10px] mt-0.5">by Talk Insights</p>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#pricing" class="text-white/80 hover:text-white text-sm font-medium transition-colors">
+        プラン
+      </a>
+      <a href="#login-section" class="hidden lg:inline-block px-4 py-2 text-sm font-semibold text-white border border-white/30 rounded-lg hover:bg-white/10 transition-colors">
+        ログイン
+      </a>
+      <a href="#login-section" class="hidden lg:inline-block px-4 py-2 text-sm font-semibold text-blue-700 bg-white rounded-lg hover:bg-blue-50 transition-colors">
+        無料で始める
+      </a>
+    </div>
+  </nav>
+
+  <!-- メインコンテンツ -->
+  <div class="relative z-10 flex flex-col lg:flex-row min-h-[calc(100vh-80px)]">
+
+    <!-- 左側: メインビジュアル -->
+    <div class="flex-1 flex flex-col justify-center px-6 lg:px-12 xl:px-20 py-10 lg:py-0">
+
+      <!-- プロダクト名が主役 -->
+      <div class="mb-6">
+        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-none tracking-tight">
+          First Touch
+        </h1>
+        <p class="text-blue-300/40 text-xs mt-2 tracking-widest uppercase">by Talk Insights</p>
+      </div>
+
+      <!-- キャッチコピー -->
+      <p class="text-2xl lg:text-3xl font-bold text-white mb-4">
+        話すだけで、顧客登録。
+      </p>
+      <p class="text-base lg:text-lg text-blue-100 font-light max-w-lg mb-3">
+        名刺交換後、スマホに30秒話しかける。<br>
+        AIが会話を分析し、相手に刺さるお礼メールを自動作成。
+      </p>
+
+      <!-- フェード切替タグライン -->
+      <div class="h-8 relative overflow-hidden mb-8 max-w-lg">
+        <span class="absolute left-0 text-base lg:text-lg text-white font-semibold tagline-1">名刺の山が、商談リストに変わる。</span>
+        <span class="absolute left-0 text-base lg:text-lg text-white font-semibold tagline-2 opacity-0">初回の出会いが、次のアポに変わる。</span>
+        <span class="absolute left-0 text-base lg:text-lg text-white font-semibold tagline-3 opacity-0">フォローにかける時間は1/10。商談化率は3倍。</span>
+      </div>
+
+      <!-- 3ステップ -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mb-8">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+          <div class="w-12 h-12 bg-blue-400/20 rounded-lg flex items-center justify-center mb-3">
+            <svg class="w-6 h-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+            </svg>
+          </div>
+          <p class="text-white text-sm font-semibold mb-1">STEP 1</p>
+          <p class="text-blue-100 text-xs">スマホに話すだけで顧客情報をAIが構造化</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+          <div class="w-12 h-12 bg-blue-400/20 rounded-lg flex items-center justify-center mb-3">
+            <svg class="w-6 h-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+            </svg>
+          </div>
+          <p class="text-white text-sm font-semibold mb-1">STEP 2</p>
+          <p class="text-blue-100 text-xs">AIが課題を深掘りし解決策を提案</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+          <div class="w-12 h-12 bg-blue-400/20 rounded-lg flex items-center justify-center mb-3">
+            <svg class="w-6 h-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+          </div>
+          <p class="text-white text-sm font-semibold mb-1">STEP 3</p>
+          <p class="text-blue-100 text-xs">お礼メールを自動生成しGmail下書きへ</p>
+        </div>
+      </div>
+
+      <!-- 信頼性バッジ -->
+      <div class="flex items-center gap-4 text-blue-300/60 text-[10px]">
+        <span class="flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+          SSL暗号化通信
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          AI学習に不使用
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"/></svg>
+          クレジットカード不要
+        </span>
+      </div>
+
+      <!-- スマホ用CTA -->
+      <div class="flex gap-3 mt-8 lg:hidden">
+        <a href="#login-section" class="flex-1 py-3 text-sm font-semibold text-white border border-white/40 rounded-lg hover:bg-white/10 transition-colors text-center">
+          ログイン
+        </a>
+        <a href="#login-section" class="flex-1 py-3 text-sm font-semibold text-blue-700 bg-white rounded-lg hover:bg-blue-50 transition-colors text-center">
+          無料で始める
+        </a>
+      </div>
+    </div>
+
+    <!-- 右側: ログインフォーム（/first-touchに統合表示） -->
+    <div id="login-section" class="w-full lg:w-[460px] xl:w-[500px] flex items-center justify-center p-6 lg:p-8 min-h-screen lg:min-h-0">
+      <div class="bg-white rounded-2xl p-8 lg:p-10 w-full max-w-[400px] shadow-2xl">
+        <h2 class="text-xl font-bold text-blue-600 mb-1 text-center">ログイン</h2>
+        <p class="text-xs text-gray-400 mb-6 text-center">First Touch ダッシュボード</p>
+
+        <button class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white border-2 border-gray-200 rounded-xl font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all mb-4">
+          <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Googleでログイン
+        </button>
+
+        <div class="flex items-center gap-3 mb-4">
+          <div class="flex-1 h-px bg-gray-200"></div>
+          <span class="text-xs text-gray-400">または</span>
+          <div class="flex-1 h-px bg-gray-200"></div>
+        </div>
+
+        <div class="space-y-3 mb-4">
+          <input type="email" placeholder="メールアドレス" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none" />
+          <input type="password" placeholder="パスワード" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none" />
+        </div>
+
+        <button class="w-full py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors mb-4">
+          ログイン
+        </button>
+
+        <div class="flex justify-between text-xs text-gray-400">
+          <button class="hover:text-blue-600 transition-colors">パスワードを忘れた方</button>
+          <button class="hover:text-blue-600 transition-colors font-semibold text-blue-600">新規登録（無料）</button>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-gray-100 text-center">
+          <p class="text-[10px] text-gray-300">Crowd Power Partners株式会社</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- スクロール誘導 -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden lg:block">
+    <a href="#pricing" class="flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors">
+      <span class="text-[10px]">料金プラン</span>
+      <svg class="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- 料金プラン -->
+<!-- ============================================ -->
+<section id="pricing" class="py-20 px-6 bg-gray-50">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-12">
+      <p class="text-blue-600 font-semibold text-sm mb-2">PRICING</p>
+      <h2 class="text-3xl font-bold text-gray-900 mb-1">First Touch 料金プラン</h2>
+      <p class="text-gray-400 text-xs mb-3">by Talk Insights</p>
+      <p class="text-gray-500 text-sm">すべてのプランでコア機能が使えます。規模に合わせてお選びください。</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+      <!-- FREE -->
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 flex flex-col">
+        <div class="mb-6">
+          <span class="inline-block bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full mb-3">FREE</span>
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-bold text-gray-900">&yen;0</span>
+            <span class="text-gray-400 text-sm">/ 月</span>
+          </div>
+          <p class="text-gray-500 text-xs mt-2">個人で試したい方に。クレジットカード不要。</p>
+        </div>
+        <ul class="space-y-3 text-sm text-gray-600 flex-1">
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>音声入力・名刺スキャン <strong>無制限</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>AI構造化・AI分析・メールAI <strong>各20件/月</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>顧客管理・Gmail下書き <strong>無制限</strong></span>
+          </li>
+        </ul>
+        <a href="#login-section" class="mt-6 block w-full py-3 text-center bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-colors">
+          無料で始める
+        </a>
+      </div>
+
+      <!-- LIGHT（推奨） -->
+      <div class="bg-white rounded-2xl shadow-xl border-2 border-blue-500 p-8 flex flex-col relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+          <span class="bg-blue-600 text-white text-[10px] font-bold px-4 py-1 rounded-full">おすすめ</span>
+        </div>
+        <div class="mb-6">
+          <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3">LIGHT</span>
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-bold text-gray-900">&yen;900</span>
+            <span class="text-gray-400 text-sm">/ 月</span>
+          </div>
+          <p class="text-gray-500 text-xs mt-2">営業活動を本格的にAIで効率化したい方に。</p>
+        </div>
+        <ul class="space-y-3 text-sm text-gray-600 flex-1">
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>FREEプランの全機能</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>AI構造化・AI分析・メールAI <strong class="text-blue-700">各100件/月</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>メール一斉送信</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>優先サポート</span>
+          </li>
+        </ul>
+        <a href="#login-section" class="mt-6 block w-full py-3 text-center bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/25">
+          無料で始める
+        </a>
+        <p class="text-[10px] text-gray-400 text-center mt-2">登録後にアップグレード可能</p>
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 flex flex-col">
+        <div class="mb-6">
+          <span class="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full mb-3">ENTERPRISE</span>
+          <div class="flex items-baseline gap-1">
+            <span class="text-2xl font-bold text-gray-900">要ご相談</span>
+          </div>
+          <p class="text-gray-500 text-xs mt-2">チーム導入・カスタマイズをご検討の企業様に。</p>
+        </div>
+        <ul class="space-y-3 text-sm text-gray-600 flex-1">
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>LIGHTプランの全機能</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>AI利用 <strong>無制限</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>組織管理・ユーザー管理</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>Kintone・CRM連携</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/></svg>
+            <span>専任サポート・導入支援</span>
+          </li>
+        </ul>
+        <a href="/contact" class="mt-6 block w-full py-3 text-center bg-purple-50 text-purple-700 font-semibold rounded-xl hover:bg-purple-100 transition-colors border border-purple-200">
+          お問い合わせ
+        </a>
+      </div>
+    </div>
+
+    <!-- 比較表 -->
+    <div class="mt-16 bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+      <div class="px-6 py-4 bg-gray-50 border-b border-gray-100">
+        <h3 class="font-bold text-gray-800">機能比較</h3>
+      </div>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-gray-100">
+            <th class="text-left px-6 py-3 text-gray-500 font-medium">機能</th>
+            <th class="text-center px-4 py-3 text-gray-500 font-medium">FREE</th>
+            <th class="text-center px-4 py-3 text-blue-600 font-bold">LIGHT</th>
+            <th class="text-center px-4 py-3 text-purple-600 font-medium">ENTERPRISE</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600">
+          <tr class="border-b border-gray-50"><td class="px-6 py-3">音声入力・名刺スキャン</td><td class="text-center">無制限</td><td class="text-center font-semibold text-blue-700">無制限</td><td class="text-center">無制限</td></tr>
+          <tr class="border-b border-gray-50"><td class="px-6 py-3">AI構造化（音声→データ）</td><td class="text-center">20件/月</td><td class="text-center font-semibold text-blue-700">100件/月</td><td class="text-center">無制限</td></tr>
+          <tr class="border-b border-gray-50"><td class="px-6 py-3">AI分析（課題・解決策）</td><td class="text-center">20件/月</td><td class="text-center font-semibold text-blue-700">100件/月</td><td class="text-center">無制限</td></tr>
+          <tr class="border-b border-gray-50"><td class="px-6 py-3">メールAI自動生成</td><td class="text-center">20件/月</td><td class="text-center font-semibold text-blue-700">100件/月</td><td class="text-center">無制限</td></tr>
+          <tr class="border-b border-gray-50"><td class="px-6 py-3">顧客管理・Gmail下書き</td><td class="text-center">無制限</td><td class="text-center font-semibold text-blue-700">無制限</td><td class="text-center">無制限</td></tr>
+          <tr class="border-b border-gray-50"><td class="px-6 py-3">メール一斉送信</td><td class="text-center text-gray-300">&mdash;</td><td class="text-center font-semibold text-blue-700">&#10003;</td><td class="text-center">&#10003;</td></tr>
+          <tr class="border-b border-gray-50"><td class="px-6 py-3">組織管理・ユーザー管理</td><td class="text-center text-gray-300">&mdash;</td><td class="text-center text-gray-300">&mdash;</td><td class="text-center">&#10003;</td></tr>
+          <tr><td class="px-6 py-3">CRM連携（Kintone等）</td><td class="text-center text-gray-300">&mdash;</td><td class="text-center text-gray-300">&mdash;</td><td class="text-center">&#10003;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- フッター -->
+<!-- ============================================ -->
+<footer class="bg-gray-900 text-gray-400 py-10 px-6">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="text-center md:text-left">
+      <p class="text-white font-bold text-sm mb-0.5">First Touch</p>
+      <p class="text-[10px] text-gray-500">by Talk Insights &mdash; Crowd Power Partners株式会社</p>
+    </div>
+    <div class="flex gap-6 text-xs">
+      <a href="/terms" class="hover:text-white transition-colors">利用規約</a>
+      <a href="/privacy" class="hover:text-white transition-colors">プライバシーポリシー</a>
+      <a href="/legal" class="hover:text-white transition-colors">特定商取引法</a>
+      <a href="/contact" class="hover:text-white transition-colors">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================ -->
+<!-- 参考: /login（共通ログイン専用）のイメージ -->
+<!-- ============================================ -->
+<section class="py-16 px-6 bg-white border-t-4 border-blue-600">
+  <div class="max-w-sm mx-auto text-center">
+    <p class="text-xs text-gray-400 mb-2 tracking-widest uppercase">参考モック: /login（共通ログインページ）</p>
+    <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 mt-4">
+      <div class="flex justify-center mb-4">
+        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+          <span class="text-white font-bold text-sm">TI</span>
+        </div>
+      </div>
+      <h2 class="text-lg font-bold text-gray-800 mb-1">Talk Insights にログイン</h2>
+      <p class="text-xs text-gray-400 mb-6">First Touch / First Meeting 共通アカウント</p>
+
+      <button class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white border-2 border-gray-200 rounded-xl font-medium text-gray-700 hover:bg-gray-50 transition-all mb-4 text-sm">
+        <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Googleでログイン
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="flex-1 h-px bg-gray-200"></div>
+        <span class="text-xs text-gray-400">または</span>
+        <div class="flex-1 h-px bg-gray-200"></div>
+      </div>
+
+      <div class="space-y-3 mb-4">
+        <input type="email" placeholder="メールアドレス" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="password" placeholder="パスワード" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <button class="w-full py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors mb-4">
+        ログイン
+      </button>
+
+      <div class="flex justify-between text-xs text-gray-400">
+        <span class="hover:text-blue-600 cursor-pointer">パスワードを忘れた方</span>
+        <span class="hover:text-blue-600 cursor-pointer font-semibold text-blue-600">新規登録（無料）</span>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-gray-100">
+        <p class="text-[10px] text-gray-300">Crowd Power Partners株式会社</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

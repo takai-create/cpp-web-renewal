@@ -8,7 +8,7 @@ const { site, nav } = content;
 
 export default function Header() {
   const pathname = usePathname();
-  const isTop = pathname === "/v2";
+  const isTop = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -18,7 +18,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const link = (anchor: string) => (isTop ? `#${anchor}` : `/v2#${anchor}`);
+  const link = (anchor: string) => (isTop ? `#${anchor}` : `/#${anchor}`);
   const close = () => setMenuOpen(false);
 
   // 透過ヒーロー上（トップページ・スクロール前）は白ロゴ
@@ -33,14 +33,14 @@ export default function Header() {
       className={`v2-header ${!isTop ? "v2-header--solid" : ""} ${scrolled ? "v2-header--scrolled" : ""}`}
     >
       <div className="v2-header__inner">
-        <a href="/v2" className="v2-header__logo" aria-label={site.name}>
+        <a href="/" className="v2-header__logo" aria-label={site.name}>
           <img src={logoSrc} alt={site.name} className="v2-header__logo-img" />
         </a>
         <nav className={`v2-header__nav ${menuOpen ? "v2-header__nav--open" : ""}`}>
           <a href={link("about")} className="v2-header__link" onClick={close}>
             {nav.about}
           </a>
-          <a href="/v2/business" className="v2-header__link" onClick={close}>
+          <a href="/business" className="v2-header__link" onClick={close}>
             {nav.business}
           </a>
           <a href={link("news")} className="v2-header__link" onClick={close}>

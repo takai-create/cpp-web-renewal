@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Touch ポスター</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; background: #f1f5f9; }
+
+  /* ポスター共通 */
+  .poster {
+    margin: 0 auto;
+    background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 40%, #2563eb 100%);
+    position: relative;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* A4 */
+  .poster.a4 { width: 210mm; height: 297mm; }
+  /* A3 */
+  .poster.a3 { width: 297mm; height: 420mm; }
+
+  /* 背景 */
+  .poster::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 300px; height: 300px;
+    background: rgba(96,165,250,0.15);
+    border-radius: 50%;
+    filter: blur(60px);
+  }
+  .poster::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 250px; height: 250px;
+    background: rgba(59,130,246,0.12);
+    border-radius: 50%;
+    filter: blur(50px);
+  }
+
+  .content {
+    position: relative; z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .a4 .content { padding: 28px 28px 16px; }
+  .a3 .content { padding: 40px 40px 20px; }
+
+  /* ヘッダー */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .a4 .header { margin-bottom: 16px; }
+  .a3 .header { margin-bottom: 28px; }
+  .a4 .brand-name { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; }
+  .a3 .brand-name { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+  .brand-sub { color: white; margin-top: 2px; }
+  .a4 .brand-sub { font-size: 9px; }
+  .a3 .brand-sub { font-size: 12px; }
+  .badge {
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .a4 .badge { padding: 6px 14px; font-size: 10px; }
+  .a3 .badge { padding: 8px 18px; font-size: 13px; }
+
+  /* メインビジュアル */
+  .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .product-name { font-weight: 800; letter-spacing: -2px; line-height: 1; }
+  .a4 .product-name { font-size: 44px; margin-bottom: 4px; }
+  .a3 .product-name { font-size: 66px; margin-bottom: 6px; }
+  .product-sub { color: white; letter-spacing: 3px; text-transform: uppercase; }
+  .a4 .product-sub { font-size: 9px; margin-bottom: 16px; }
+  .a3 .product-sub { font-size: 13px; margin-bottom: 24px; }
+  .catchcopy { font-weight: 800; line-height: 1.3; }
+  .a4 .catchcopy { font-size: 30px; margin-bottom: 10px; }
+  .a3 .catchcopy { font-size: 46px; margin-bottom: 16px; }
+  .description { color: white; line-height: 1.8; }
+  .a4 .description { font-size: 13px; max-width: 400px; margin-bottom: 14px; }
+  .a3 .description { font-size: 17px; max-width: 560px; margin-bottom: 22px; }
+  .tagline { font-weight: 700; color: white; }
+  .a4 .tagline { font-size: 15px; margin-bottom: 18px; }
+  .a3 .tagline { font-size: 22px; margin-bottom: 28px; }
+
+  /* 3ステップ */
+  .steps { display: flex; }
+  .a4 .steps { gap: 10px; margin-bottom: 0; }
+  .a3 .steps { gap: 14px; margin-bottom: 0; }
+  .step {
+    flex: 1;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+  }
+  .a4 .step { padding: 12px 10px; }
+  .a3 .step { padding: 18px 16px; }
+  .step-icon {
+    background: rgba(96,165,250,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .a4 .step-icon { width: 34px; height: 34px; margin-bottom: 8px; font-size: 16px; }
+  .a3 .step-icon { width: 46px; height: 46px; margin-bottom: 12px; font-size: 22px; }
+  .step-label { font-weight: 700; }
+  .a4 .step-label { font-size: 11px; margin-bottom: 3px; }
+  .a3 .step-label { font-size: 14px; margin-bottom: 5px; }
+  .step-desc { color: white; line-height: 1.5; }
+  .a4 .step-desc { font-size: 10px; }
+  .a3 .step-desc { font-size: 13px; }
+
+  /* 下部白エリア */
+  .bottom-section {
+    position: relative; z-index: 1;
+    background: white;
+    color: #1e293b;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .a4 .bottom-section { border-radius: 16px 16px 0 0; padding: 20px 28px 22px; }
+  .a3 .bottom-section { border-radius: 22px 22px 0 0; padding: 28px 40px 32px; }
+  .bottom-flex { display: flex; align-items: center; }
+  .a4 .bottom-flex { gap: 20px; }
+  .a3 .bottom-flex { gap: 30px; }
+
+  /* QR */
+  .qr-area {
+    flex-shrink: 0;
+    border: 3px dashed #3b82f6;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #eff6ff;
+  }
+  .a4 .qr-area { width: 120px; height: 120px; }
+  .a3 .qr-area { width: 170px; height: 170px; }
+  .qr-placeholder {
+    background: white;
+    border: 2px solid #93c5fd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .a4 .qr-placeholder { width: 82px; height: 82px; margin-bottom: 5px; }
+  .a3 .qr-placeholder { width: 120px; height: 120px; margin-bottom: 7px; }
+  .qr-placeholder-text { color: #93c5fd; font-weight: 600; }
+  .a4 .qr-placeholder-text { font-size: 10px; }
+  .a3 .qr-placeholder-text { font-size: 14px; }
+  .qr-label { color: #3b82f6; font-weight: 700; }
+  .a4 .qr-label { font-size: 8px; letter-spacing: 0.5px; }
+  .a3 .qr-label { font-size: 11px; letter-spacing: 0.5px; }
+
+  /* CTA+料金 */
+  .info { flex: 1; }
+  .cta-main { font-weight: 800; color: #1e3a8a; }
+  .a4 .cta-main { font-size: 20px; margin-bottom: 2px; }
+  .a3 .cta-main { font-size: 28px; margin-bottom: 4px; }
+  .cta-free { font-weight: 800; color: #2563eb; }
+  .a4 .cta-free { font-size: 14px; margin-bottom: 4px; }
+  .a3 .cta-free { font-size: 18px; margin-bottom: 6px; }
+  .cta-url { color: #3b82f6; font-weight: 600; }
+  .a4 .cta-url { font-size: 12px; margin-bottom: 12px; }
+  .a3 .cta-url { font-size: 16px; margin-bottom: 16px; }
+  .price-row { display: flex; }
+  .a4 .price-row { gap: 12px; margin-bottom: 12px; }
+  .a3 .price-row { gap: 16px; margin-bottom: 16px; }
+  .price-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .a4 .price-card { padding: 8px 14px; }
+  .a3 .price-card { padding: 12px 20px; }
+  .price-card.highlight { border-color: #3b82f6; background: #eff6ff; }
+  .price-label { font-weight: 700; color: #64748b; }
+  .a4 .price-label { font-size: 9px; margin-bottom: 2px; }
+  .a3 .price-label { font-size: 12px; margin-bottom: 3px; }
+  .price-card.highlight .price-label { color: #2563eb; }
+  .price-value { font-weight: 800; color: #0f172a; }
+  .a4 .price-value { font-size: 18px; }
+  .a3 .price-value { font-size: 26px; }
+  .price-unit { color: #94a3b8; }
+  .a4 .price-unit { font-size: 9px; }
+  .a3 .price-unit { font-size: 12px; }
+  .features-mini { display: flex; flex-wrap: wrap; color: #64748b; }
+  .a4 .features-mini { gap: 4px 10px; font-size: 9px; }
+  .a3 .features-mini { gap: 6px 14px; font-size: 12px; }
+  .features-mini span::before { content: '✓ '; color: #22c55e; font-weight: 700; }
+
+  /* フッター */
+  .poster-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+  }
+  .a4 .poster-footer { margin-top: 12px; padding-top: 10px; }
+  .a3 .poster-footer { margin-top: 16px; padding-top: 14px; }
+  .footer-brand { color: #94a3b8; }
+  .a4 .footer-brand { font-size: 9px; }
+  .a3 .footer-brand { font-size: 12px; }
+  .footer-badges { display: flex; color: #94a3b8; }
+  .a4 .footer-badges { gap: 10px; font-size: 8px; }
+  .a3 .footer-badges { gap: 14px; font-size: 11px; }
+
+  /* ===== 画面表示時のUI ===== */
+  @media screen {
+    .controls {
+      max-width: 300mm;
+      margin: 20px auto;
+      padding: 16px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+    }
+    .controls button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s;
+    }
+    .btn-size {
+      background: #f1f5f9;
+      color: #334155;
+    }
+    .btn-size.active {
+      background: #2563eb;
+      color: white;
+    }
+    .btn-print {
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+    .btn-print:hover { background: #1d4ed8; }
+    .note {
+      max-width: 300mm;
+      margin: 0 auto 20px;
+      padding: 12px 16px;
+      background: #fefce8;
+      border: 1px solid #fde047;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #713f12;
+      line-height: 1.6;
+    }
+    .poster { margin-bottom: 40px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+  }
+  @media print {
+    .controls, .note { display: none !important; }
+    body { background: white !important; }
+    .poster { box-shadow: none; margin: 0; }
+    .poster.hidden-print { display: none !important; }
+  }
+  /* 印刷時にページサイズをJSで切替 */
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button class="btn-size active" id="btn-a4" onclick="setSize('a4')">A4</button>
+  <button class="btn-size" id="btn-a3" onclick="setSize('a3')">A3</button>
+  <button class="btn-print" onclick="window.print()">🖨 印刷 / PDF保存</button>
+</div>
+
+<div class="note">
+  <strong>使い方:</strong> A4/A3を選択 → 「印刷 / PDF保存」ボタンまたは Ctrl+P。QRコードエリア（青い点線枠）に実際のQR画像を差し替えてください。<br>
+  <strong>印刷設定:</strong> 余白「なし」、背景のグラフィック「ON」にしてください。
+</div>
+
+<!-- A4ポスター -->
+<div class="poster a4" id="poster-a4">
+  <div class="content">
+    <div class="header">
+      <div>
+        <div class="brand-name">First Touch</div>
+        <div class="brand-sub">by Talk Insights</div>
+      </div>
+      <div class="badge">AI 営業プラットフォーム</div>
+    </div>
+    <div class="hero">
+      <div class="product-name">First Touch</div>
+      <div class="product-sub">by Talk Insights</div>
+      <div class="catchcopy">話すだけで、<br>顧客登録。</div>
+      <div class="description">
+        名刺交換後、スマホに30秒話しかける。<br>
+        AIが会話を分析し、相手に刺さるお礼メールを自動作成。
+      </div>
+      <div class="tagline">名刺の山が、商談リストに変わる。</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">🎤</div>
+          <div class="step-label">STEP 1</div>
+          <div class="step-desc">スマホに話すだけで顧客情報をAIが構造化</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">✨</div>
+          <div class="step-label">STEP 2</div>
+          <div class="step-desc">AIが課題を深掘りし解決策を提案</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">✉️</div>
+          <div class="step-label">STEP 3</div>
+          <div class="step-desc">お礼メールを自動生成しGmail下書きへ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div class="bottom-flex">
+      <div class="qr-area">
+        <div class="qr-placeholder">
+          <div class="qr-placeholder-text">QR CODE</div>
+        </div>
+        <div class="qr-label">今すぐ無料で始める</div>
+      </div>
+      <div class="info">
+        <div class="cta-main">無料ではじめられます</div>
+        <div class="cta-free">無料から始める →</div>
+        <div class="cta-url">talk-insights.com</div>
+        <div class="price-row">
+          <div class="price-card highlight">
+            <div class="price-label">FREE</div>
+            <div class="price-value">¥0<span class="price-unit"> /月</span></div>
+          </div>
+          <div class="price-card">
+            <div class="price-label">LIGHT</div>
+            <div class="price-value">¥900<span class="price-unit"> /月</span></div>
+          </div>
+        </div>
+        <div class="features-mini">
+          <span>音声入力 無制限</span>
+          <span>AI分析 20件/月</span>
+          <span>名刺スキャン 無制限</span>
+          <span>メールAI生成 20件/月</span>
+          <span>Gmail下書き 無制限</span>
+          <span>クレジットカード不要</span>
+        </div>
+      </div>
+    </div>
+    <div class="poster-footer">
+      <div class="footer-brand">Crowd Power Partners株式会社</div>
+      <div class="footer-badges">
+        <span>🔒 SSL暗号化通信</span>
+        <span>🛡 AI学習に不使用</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- A3ポスター（同じ内容、サイズだけ大きい） -->
+<div class="poster a3 hidden-print" id="poster-a3" style="display:none;">
+  <div class="content">
+    <div class="header">
+      <div>
+        <div class="brand-name">First Touch</div>
+        <div class="brand-sub">by Talk Insights</div>
+      </div>
+      <div class="badge">AI 営業プラットフォーム</div>
+    </div>
+    <div class="hero">
+      <div class="product-name">First Touch</div>
+      <div class="product-sub">by Talk Insights</div>
+      <div class="catchcopy">話すだけで、<br>顧客登録。</div>
+      <div class="description">
+        名刺交換後、スマホに30秒話しかける。<br>
+        AIが会話を分析し、相手に刺さるお礼メールを自動作成。
+      </div>
+      <div class="tagline">名刺の山が、商談リストに変わる。</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">🎤</div>
+          <div class="step-label">STEP 1</div>
+          <div class="step-desc">スマホに話すだけで顧客情報をAIが構造化</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">✨</div>
+          <div class="step-label">STEP 2</div>
+          <div class="step-desc">AIが課題を深掘りし解決策を提案</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">✉️</div>
+          <div class="step-label">STEP 3</div>
+          <div class="step-desc">お礼メールを自動生成しGmail下書きへ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div class="bottom-flex">
+      <div class="qr-area">
+        <div class="qr-placeholder">
+          <div class="qr-placeholder-text">QR CODE</div>
+        </div>
+        <div class="qr-label">今すぐ無料で始める</div>
+      </div>
+      <div class="info">
+        <div class="cta-main">無料ではじめられます</div>
+        <div class="cta-free">無料から始める →</div>
+        <div class="cta-url">talk-insights.com</div>
+        <div class="price-row">
+          <div class="price-card highlight">
+            <div class="price-label">FREE</div>
+            <div class="price-value">¥0<span class="price-unit"> /月</span></div>
+          </div>
+          <div class="price-card">
+            <div class="price-label">LIGHT</div>
+            <div class="price-value">¥900<span class="price-unit"> /月</span></div>
+          </div>
+        </div>
+        <div class="features-mini">
+          <span>音声入力 無制限</span>
+          <span>AI分析 20件/月</span>
+          <span>名刺スキャン 無制限</span>
+          <span>メールAI生成 20件/月</span>
+          <span>Gmail下書き 無制限</span>
+          <span>クレジットカード不要</span>
+        </div>
+      </div>
+    </div>
+    <div class="poster-footer">
+      <div class="footer-brand">Crowd Power Partners株式会社</div>
+      <div class="footer-badges">
+        <span>🔒 SSL暗号化通信</span>
+        <span>🛡 AI学習に不使用</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function setSize(size) {
+  const a4 = document.getElementById('poster-a4');
+  const a3 = document.getElementById('poster-a3');
+  const btnA4 = document.getElementById('btn-a4');
+  const btnA3 = document.getElementById('btn-a3');
+
+  if (size === 'a4') {
+    a4.style.display = 'flex';
+    a4.classList.remove('hidden-print');
+    a3.style.display = 'none';
+    a3.classList.add('hidden-print');
+    btnA4.classList.add('active');
+    btnA3.classList.remove('active');
+    // @pageをA4に
+    document.querySelector('style').sheet.cssRules[0].style.size = 'A4 portrait';
+  } else {
+    a4.style.display = 'none';
+    a4.classList.add('hidden-print');
+    a3.style.display = 'flex';
+    a3.classList.remove('hidden-print');
+    btnA3.classList.add('active');
+    btnA4.classList.remove('active');
+  }
+}
+</script>
+
+</body>
+</html>
