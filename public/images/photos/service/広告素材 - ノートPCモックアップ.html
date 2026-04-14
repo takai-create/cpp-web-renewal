@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)file:///C:/Users/ntaka/my-project/First-touch-problem/docs/ad_laptop_frame.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>広告素材 - ノートPCモックアップ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Yu Gothic", "游ゴシック", sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    padding: 60px 40px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .laptop {
+    width: 1200px;
+    position: relative;
+  }
+
+  /* ===== 画面本体 ===== */
+  .screen {
+    background: #111827;
+    border-radius: 16px 16px 4px 4px;
+    padding: 20px 20px 28px;
+    box-shadow:
+      inset 0 0 0 2px #374151,
+      0 20px 40px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  /* カメラ */
+  .screen::before {
+    content: "";
+    position: absolute;
+    top: 8px; left: 50%;
+    transform: translateX(-50%);
+    width: 6px; height: 6px;
+    background: #4b5563;
+    border-radius: 50%;
+  }
+  .screen-inner {
+    background: #f9fafb;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+  }
+
+  /* ===== キーボードベース ===== */
+  .base {
+    width: 115%;
+    height: 14px;
+    margin: 0 auto;
+    position: relative;
+    left: -7.5%;
+    background: linear-gradient(180deg, #9ca3af 0%, #6b7280 50%, #4b5563 100%);
+    border-radius: 0 0 12px 12px;
+  }
+  .base::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 6px;
+    background: #374151;
+    border-radius: 0 0 10px 10px;
+  }
+
+  /* ===== ダッシュボード内部 ===== */
+  .dashboard {
+    width: 100%;
+    height: 100%;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .dh-header {
+    background: #fff;
+    padding: 10px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .dh-left { display: flex; align-items: center; gap: 24px; }
+  .dh-logo { color: #1d4ed8; font-weight: 800; font-size: 16px; }
+  .dh-tabs { display: flex; gap: 3px; }
+  .dh-tab { padding: 5px 11px; font-size: 11px; color: #6b7280; border-radius: 5px; }
+  .dh-tab.active { background: #eff6ff; color: #1d4ed8; font-weight: 700; }
+  .dh-right { display: flex; align-items: center; gap: 12px; }
+  .dh-plan { background: #fef3c7; color: #b45309; padding: 2px 9px; border-radius: 999px; font-size: 10px; font-weight: 700; }
+  .dh-user { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #374151; }
+  .dh-avatar { width: 24px; height: 24px; background: #3b82f6; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+
+  /* Main */
+  .dh-main { padding: 16px 22px; flex: 1; overflow: hidden; }
+  .dh-h1 { font-size: 16px; font-weight: 800; color: #111827; }
+  .dh-sub { font-size: 10px; color: #6b7280; margin-bottom: 14px; }
+
+  /* KPI */
+  .dh-kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+  .dh-kpi-card { background: #fff; border-radius: 7px; padding: 12px 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-left: 3px solid; }
+  .dh-kpi-card.blue { border-left-color: #2563eb; }
+  .dh-kpi-card.green { border-left-color: #16a34a; }
+  .dh-kpi-card.purple { border-left-color: #9333ea; }
+  .dh-kpi-card.orange { border-left-color: #ea580c; }
+  .dh-kpi-label { font-size: 10px; color: #6b7280; margin-bottom: 3px; }
+  .dh-kpi-value { font-size: 24px; font-weight: 800; line-height: 1; }
+  .v-blue { color: #2563eb; } .v-green { color: #16a34a; }
+  .v-purple { color: #9333ea; } .v-orange { color: #ea580c; }
+  .dh-kpi-sub { font-size: 9px; color: #9ca3af; margin-top: 3px; }
+
+  /* Deal bar */
+  .dh-deal { background: #fff; border-radius: 7px; padding: 9px 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .dh-deal-label { font-size: 10px; font-weight: 700; color: #6b7280; }
+  .dh-chip { padding: 3px 9px; border-radius: 5px; font-size: 10px; border: 1px solid; }
+  .dh-chip.d { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+  .dh-chip.c { background: #fefce8; border-color: #fde68a; color: #a16207; }
+  .dh-chip.b { background: #fff7ed; border-color: #fed7aa; color: #c2410c; }
+  .dh-chip.a { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+  .dh-chip.won { background: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
+  .dh-chip b { font-weight: 800; }
+  .dh-deal-total { margin-left: auto; font-size: 11px; color: #374151; }
+  .dh-deal-total b { font-size: 13px; color: #111827; }
+
+  /* Table */
+  .dh-panel { background: #fff; border-radius: 7px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); overflow: hidden; }
+  .dh-thead { padding: 10px 14px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; }
+  .dh-ttitle { font-size: 12px; font-weight: 700; color: #111827; }
+  .dh-filters { display: flex; gap: 5px; }
+  .dh-filter { padding: 3px 9px; border-radius: 999px; font-size: 10px; background: #f3f4f6; color: #6b7280; }
+  .dh-filter.active { background: #3b82f6; color: #fff; font-weight: 700; }
+  table { width: 100%; border-collapse: collapse; font-size: 10px; }
+  th, td { padding: 8px 12px; text-align: left; }
+  th { background: #f9fafb; color: #6b7280; font-weight: 600; font-size: 9px; }
+  tbody tr { border-top: 1px solid #f3f4f6; }
+  .flag-col { width: 22px; text-align: center; }
+  .star-on { color: #f59e0b; }
+  .star-off { color: #d1d5db; }
+  .check-on { background: #3b82f6; color: #fff; width: 16px; height: 16px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; }
+  .check-off { color: #d1d5db; font-size: 14px; }
+  .name { font-weight: 700; color: #111827; }
+  .badge { display: inline-block; padding: 1px 6px; border-radius: 999px; font-size: 9px; font-weight: 600; }
+  .b-pending { background: #fef3c7; color: #92400e; }
+  .b-done { background: #d1fae5; color: #065f46; }
+  .b-source { background: #f3e8ff; color: #6b21a8; }
+  .tag { display: inline-block; background: #e0e7ff; color: #4338ca; padding: 1px 6px; border-radius: 999px; font-size: 9px; }
+</style>
+</head>
+<body>
+
+<div class="laptop">
+  <div class="screen">
+    <div class="screen-inner">
+      <div class="dashboard">
+        <!-- Header -->
+        <div class="dh-header">
+          <div class="dh-left">
+            <div class="dh-logo">First Touch</div>
+            <div class="dh-tabs">
+              <div class="dh-tab active">顧客一覧</div>
+              <div class="dh-tab">音声登録</div>
+              <div class="dh-tab">名刺スキャン</div>
+              <div class="dh-tab">活動集計</div>
+            </div>
+          </div>
+          <div class="dh-right">
+            <div class="dh-plan">LIGHT</div>
+            <div class="dh-user">
+              <div class="dh-avatar">蔵</div>
+              <span>蔵右戸 一郎</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main -->
+        <div class="dh-main">
+          <div class="dh-h1">営業チーム ダッシュボード</div>
+          <div class="dh-sub">今月の活動集計 / 2026年4月</div>
+
+          <div class="dh-kpi">
+            <div class="dh-kpi-card blue"><div class="dh-kpi-label">総活動数</div><div class="dh-kpi-value v-blue">66</div><div class="dh-kpi-sub">先月比 +18%</div></div>
+            <div class="dh-kpi-card green"><div class="dh-kpi-label">顧客登録</div><div class="dh-kpi-value v-green">177</div><div class="dh-kpi-sub">先月比 +42%</div></div>
+            <div class="dh-kpi-card purple"><div class="dh-kpi-label">メール送信</div><div class="dh-kpi-value v-purple">53</div><div class="dh-kpi-sub">AI下書き 48件</div></div>
+            <div class="dh-kpi-card orange"><div class="dh-kpi-label">案件相談</div><div class="dh-kpi-value v-orange">12</div><div class="dh-kpi-sub">対応中 5件</div></div>
+          </div>
+
+          <div class="dh-deal">
+            <span class="dh-deal-label">案件ヨミ</span>
+            <div class="dh-chip d"><b>見込みあり</b> 12件 <b>¥480万</b></div>
+            <div class="dh-chip c"><b>C</b> 5件 <b>¥800万</b></div>
+            <div class="dh-chip b"><b>B</b> 3件 <b>¥720万</b></div>
+            <div class="dh-chip a"><b>A</b> 2件 <b>¥500万</b></div>
+            <div class="dh-chip won"><b>受注</b> 4件 <b>¥1,200万</b></div>
+            <div class="dh-deal-total">加重合計: <b>¥1,987万</b></div>
+          </div>
+
+          <div class="dh-panel">
+            <div class="dh-thead">
+              <div class="dh-ttitle">顧客一覧</div>
+              <div class="dh-filters">
+                <div class="dh-filter active">全件</div>
+                <div class="dh-filter">★ 重要</div>
+                <div class="dh-filter">見込みあり</div>
+                <div class="dh-filter">分析未</div>
+              </div>
+            </div>
+            <table>
+              <thead><tr>
+                <th class="flag-col"></th><th class="flag-col">★</th><th class="flag-col">見込</th>
+                <th>氏名</th><th>会社名</th><th>役職</th><th>接触日</th>
+                <th>AI分析</th><th>メール</th><th>タグ</th><th>登録元</th><th>担当</th>
+              </tr></thead>
+              <tbody>
+                <tr><td class="flag-col"><input type="checkbox"></td><td class="flag-col star-on">★</td><td class="flag-col"><span class="check-on">✓</span></td><td class="name">山田 雄介</td><td>株式会社フロンティア</td><td>代表取締役</td><td>04/14</td><td><span class="badge b-done">完了</span></td><td><span class="badge b-done">確定</span></td><td><span class="tag">交流会</span></td><td><span class="badge b-source">名刺</span></td><td>蔵右戸</td></tr>
+                <tr><td class="flag-col"><input type="checkbox"></td><td class="flag-col star-on">★</td><td class="flag-col"><span class="check-on">✓</span></td><td class="name">佐藤 真由美</td><td>グローバルテック株式会社</td><td>経営企画部長</td><td>04/13</td><td><span class="badge b-done">完了</span></td><td><span class="badge b-done">確定</span></td><td><span class="tag">士業紹介</span></td><td><span class="badge b-source">音声</span></td><td>蔵右戸</td></tr>
+                <tr><td class="flag-col"><input type="checkbox"></td><td class="flag-col star-off">☆</td><td class="flag-col"><span class="check-on">✓</span></td><td class="name">鈴木 健太郎</td><td>有限会社コネクト</td><td>営業部長</td><td>04/12</td><td><span class="badge b-done">完了</span></td><td><span class="badge b-done">確定</span></td><td><span class="tag">IT</span></td><td><span class="badge b-source">名刺</span></td><td>羽次目</td></tr>
+                <tr><td class="flag-col"><input type="checkbox"></td><td class="flag-col star-on">★</td><td class="flag-col"><span class="check-off">−</span></td><td class="name">田口 葵</td><td>ブライトウェイブ株式会社</td><td>取締役CMO</td><td>04/11</td><td><span class="badge b-done">完了</span></td><td><span class="badge b-pending">AI済</span></td><td><span class="tag">マーケ</span></td><td><span class="badge b-source">CSV</span></td><td>田中</td></tr>
+                <tr><td class="flag-col"><input type="checkbox"></td><td class="flag-col star-off">☆</td><td class="flag-col"><span class="check-on">✓</span></td><td class="name">藤本 健太</td><td>株式会社アドプロ</td><td>代表</td><td>04/10</td><td><span class="badge b-done">完了</span></td><td><span class="badge b-done">確定</span></td><td><span class="tag">広告</span></td><td><span class="badge b-source">名刺</span></td><td>四日市</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="base"></div>
+</div>
+
+
+
+</body></html>

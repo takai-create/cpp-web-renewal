@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)file:///C:/Users/ntaka/my-project/First-touch-problem/docs/ad_phone_frame.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>広告素材 - スマホモックアップ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Yu Gothic", "游ゴシック", sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    padding: 50px 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ===== スマホ本体 ===== */
+  .phone {
+    width: 360px;
+    background: #111827;
+    border-radius: 44px;
+    padding: 14px;
+    box-shadow:
+      inset 0 0 0 2px #374151,
+      0 20px 60px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  /* サイドボタン */
+  .phone::before {
+    content: "";
+    position: absolute;
+    left: -3px; top: 120px;
+    width: 3px; height: 60px;
+    background: #1f2937;
+    border-radius: 2px 0 0 2px;
+  }
+  .phone::after {
+    content: "";
+    position: absolute;
+    right: -3px; top: 150px;
+    width: 3px; height: 80px;
+    background: #1f2937;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .screen {
+    background: #f9fafb;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 9 / 19.5;
+  }
+
+  /* ノッチ */
+  .notch {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 22px;
+    background: #111827;
+    border-radius: 0 0 14px 14px;
+    z-index: 10;
+  }
+
+  /* ===== ダッシュボード内部 ===== */
+  .dashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 22px;
+  }
+
+  .d-header {
+    background: #fff;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .d-logo { color: #1d4ed8; font-weight: 800; font-size: 16px; }
+  .d-menu { display: flex; flex-direction: column; gap: 3px; }
+  .d-menu span { width: 18px; height: 2px; background: #6b7280; border-radius: 1px; }
+
+  .d-content {
+    padding: 16px 14px 12px;
+    flex: 1;
+  }
+  .d-h2 { font-size: 17px; font-weight: 800; color: #111827; margin-bottom: 12px; }
+
+  .d-select-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .d-select { background: #fff; border: 1px solid #d1d5db; border-radius: 7px; padding: 8px 12px; font-size: 12px; color: #374151; display: flex; justify-content: space-between; align-items: center; }
+  .d-select.small { width: 110px; }
+  .d-select::after { content: "▾"; color: #9ca3af; font-size: 10px; }
+
+  .d-kpi { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 14px; }
+  .d-kpi-card { background: #fff; border-radius: 8px; padding: 14px 12px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .d-kpi-label { font-size: 11px; color: #6b7280; margin-bottom: 5px; }
+  .d-kpi-value { font-size: 28px; font-weight: 800; line-height: 1; }
+  .v-blue { color: #2563eb; } .v-green { color: #16a34a; }
+  .v-purple { color: #9333ea; } .v-orange { color: #ea580c; }
+
+  .d-panel { background: #fff; border-radius: 8px; padding: 14px 12px; margin-bottom: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .d-panel h3 { font-size: 13px; font-weight: 700; color: #111827; margin-bottom: 10px; }
+  .rank { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 12px; }
+  .rank-num { color: #9ca3af; font-weight: 700; width: 14px; }
+  .rank-name { color: #374151; min-width: 70px; font-weight: 500; font-size: 11px; }
+  .rank-bar { flex: 1; height: 14px; background: #f3f4f6; border-radius: 7px; position: relative; overflow: hidden; }
+  .rank-bar .fill { position: absolute; left: 0; top: 0; bottom: 0; background: #3b82f6; border-radius: 7px; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; color: #fff; font-size: 9px; font-weight: 700; }
+  .rank-bar .fill.s { background: #93c5fd; padding-right: 0; }
+
+  .d-activity { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .d-act-card { background: #f9fafb; border-radius: 7px; padding: 10px; text-align: center; }
+  .d-act-icon { font-size: 18px; margin-bottom: 3px; }
+  .d-act-label { font-size: 10px; color: #6b7280; margin-bottom: 2px; }
+  .d-act-value { font-size: 18px; font-weight: 800; color: #111827; }
+
+  .d-nav {
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    padding: 8px 0 12px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .d-nav-item { text-align: center; color: #6b7280; font-size: 10px; }
+  .d-nav-item .icon { display: block; font-size: 18px; margin-bottom: 1px; }
+</style>
+</head>
+<body>
+
+<div class="phone">
+  <div class="screen">
+    <div class="notch"></div>
+    <div class="dashboard">
+      <div class="d-header">
+        <div class="d-logo">First Touch</div>
+        <div class="d-menu"><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="d-content">
+        <div class="d-h2">活動集計</div>
+
+        <div class="d-select-row">
+          <div class="d-select small">今月</div>
+          <div class="d-select">営業チーム</div>
+        </div>
+
+        <div class="d-kpi">
+          <div class="d-kpi-card"><div class="d-kpi-label">総活動数</div><div class="d-kpi-value v-blue">66</div></div>
+          <div class="d-kpi-card"><div class="d-kpi-label">顧客登録</div><div class="d-kpi-value v-green">177</div></div>
+          <div class="d-kpi-card"><div class="d-kpi-label">メール系</div><div class="d-kpi-value v-purple">53</div></div>
+          <div class="d-kpi-card"><div class="d-kpi-label">案件相談</div><div class="d-kpi-value v-orange">12</div></div>
+        </div>
+
+        <div class="d-panel">
+          <h3>担当者一覧</h3>
+          <div class="rank"><span class="rank-num">1</span><span class="rank-name">蔵右戸 一郎</span><div class="rank-bar"><div class="fill" style="width:100%;">54件</div></div></div>
+          <div class="rank"><span class="rank-num">2</span><span class="rank-name">羽次目 次郎</span><div class="rank-bar"><div class="fill s" style="width:10%;"></div></div></div>
+          <div class="rank"><span class="rank-num">3</span><span class="rank-name">田中 泰三</span><div class="rank-bar"><div class="fill s" style="width:8%;"></div></div></div>
+          <div class="rank"><span class="rank-num">4</span><span class="rank-name">四日市 幸太</span><div class="rank-bar"><div class="fill s" style="width:6%;"></div></div></div>
+        </div>
+
+        <div class="d-panel">
+          <h3>活動タイプ別内訳</h3>
+          <div class="d-activity">
+            <div class="d-act-card"><div class="d-act-icon">📧</div><div class="d-act-label">メール保存</div><div class="d-act-value">42</div></div>
+            <div class="d-act-card"><div class="d-act-icon">✉️</div><div class="d-act-label">Gmail下書き</div><div class="d-act-value">11</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-nav">
+        <div class="d-nav-item"><span class="icon">👥</span>顧客一覧</div>
+        <div class="d-nav-item"><span class="icon">🎤</span>音声登録</div>
+        <div class="d-nav-item"><span class="icon">📇</span>名刺スキャン</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body></html>

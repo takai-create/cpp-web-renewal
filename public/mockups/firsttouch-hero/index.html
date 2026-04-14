@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>First Touch ヒーロービジュアル 3案 - Crowd Power Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #f5f5f7;
+    color: #1a1a1a;
+    padding: 60px 40px;
+  }
+  .header {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 8px;
+  }
+  .lead {
+    color: #666;
+    margin: 0;
+  }
+  .list {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  .item {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .item__head {
+    padding: 24px 32px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .item__title {
+    font-size: 20px;
+    margin: 0;
+  }
+  .item__hint {
+    font-size: 12px;
+    color: #666;
+  }
+  .item__body {
+    position: relative;
+    background: #0a1628;
+  }
+  .item__body img {
+    width: 100%;
+    display: block;
+  }
+  .item__text {
+    position: absolute;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    max-width: 50%;
+  }
+  .item__label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+  }
+  .item__copy {
+    font-size: clamp(22px, 3vw, 38px);
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 18px;
+    letter-spacing: 0.02em;
+  }
+  .item__sub {
+    font-size: clamp(11px, 1.2vw, 14px);
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+    margin: 0 0 22px;
+  }
+  .item__sub b {
+    color: #fff;
+    font-weight: 500;
+  }
+  .item__btns {
+    display: flex;
+    gap: 10px;
+  }
+  .item__btn {
+    padding: 10px 22px;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: #fff;
+    font-size: 11px;
+    border-radius: 2px;
+    text-decoration: none;
+  }
+  .item__btn--primary {
+    background: #fff;
+    color: #0a1628;
+    border-color: #fff;
+  }
+  .item__foot {
+    padding: 20px 32px;
+    background: #fafafa;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>First Touch ヒーロービジュアル 3案</h1>
+    <p class="lead">トップページのスライダー2枚目に使用する First Touch の紹介ビジュアル。テキストは既存のスライダー実装で左側に重ねて表示されます。</p>
+  </div>
+  <div class="list">
+    <section class="item">
+      <div class="item__head">
+        <h2 class="item__title">Version A — PC版（ノートPC単独）</h2>
+        <span class="item__hint">firsttouch-hero-pc.jpg</span>
+      </div>
+      <div class="item__body">
+        <img src="/images/photos/service/firsttouch-hero-pc.jpg" alt="PC版">
+        <div class="item__text">
+          <p class="item__label">AI SALES PLATFORM</p>
+          <h3 class="item__copy">出会いを、商談に変える。</h3>
+          <p class="item__sub"><b>First Touch</b> by Talk Insightsは、名刺交換後の30秒から<br>AIが商談の入り口を自動で創り出します。</p>
+          <div class="item__btns">
+            <a class="item__btn" href="#">事業を見る</a>
+            <a class="item__btn item__btn--primary" href="#">お問い合わせ</a>
+          </div>
+        </div>
+      </div>
+      <div class="item__foot">
+        ダッシュボード画面を大きく見せる王道のSaaS紹介構成。B2B企業の社内利用イメージが伝わりやすく、管理画面の機能性を訴求できる。</div>
+    </section>
+
+    <section class="item">
+      <div class="item__head">
+        <h2 class="item__title">Version B — スマホ版（スマホ単独）</h2>
+        <span class="item__hint">firsttouch-hero-sp.jpg</span>
+      </div>
+      <div class="item__body">
+        <img src="/images/photos/service/firsttouch-hero-sp.jpg" alt="SP版">
+        <div class="item__text">
+          <p class="item__label">AI SALES PLATFORM</p>
+          <h3 class="item__copy">出会いを、商談に変える。</h3>
+          <p class="item__sub"><b>First Touch</b> by Talk Insightsは、名刺交換後の30秒から<br>AIが商談の入り口を自動で創り出します。</p>
+          <div class="item__btns">
+            <a class="item__btn" href="#">事業を見る</a>
+            <a class="item__btn item__btn--primary" href="#">お問い合わせ</a>
+          </div>
+        </div>
+      </div>
+      <div class="item__foot">
+        「名刺交換後にスマホで30秒話す」という実際の利用シーンを直感的に想起させる。First Touchの現場感・携帯性が最も強く伝わる構成。
+      </div>
+    </section>
+
+    <section class="item">
+      <div class="item__head">
+        <h2 class="item__title">Version C — 両方版（PC＋スマホ）</h2>
+        <span class="item__hint">firsttouch-hero-both.jpg</span>
+      </div>
+      <div class="item__body">
+        <img src="/images/photos/service/firsttouch-hero-both.jpg" alt="両方版">
+        <div class="item__text">
+          <p class="item__label">AI SALES PLATFORM</p>
+          <h3 class="item__copy">出会いを、商談に変える。</h3>
+          <p class="item__sub"><b>First Touch</b> by Talk Insightsは、名刺交換後の30秒から<br>AIが商談の入り口を自動で創り出します。</p>
+          <div class="item__btns">
+            <a class="item__btn" href="#">事業を見る</a>
+            <a class="item__btn item__btn--primary" href="#">お問い合わせ</a>
+          </div>
+        </div>
+      </div>
+      <div class="item__foot">
+        スマホで入力、PCで管理という利用フロー全体を1枚で示せる。情報量は多いが、プロダクトのエコシステム感を訴求できる。
+      </div>
+    </section>
+  </div>
+</body>
+</html>
