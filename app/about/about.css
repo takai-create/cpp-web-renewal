@@ -48,7 +48,7 @@
 /* ── Message Section ── */
 .about-message {
   padding: 100px 0;
-  background: var(--v2-bg);
+  background: var(--v2-bg-alt);
 }
 .about-message__inner {
   max-width: 760px;
@@ -88,7 +88,12 @@
 /* ── Company Info Section ── */
 .about-company {
   padding: 100px 0;
-  background: var(--v2-bg-alt);
+  background: var(--v2-bg);
+}
+
+/* Aboutページのみ CTA 背景を白に（薄グレー → 白の順序にするため） */
+.about-page .v2-cta {
+  background: var(--v2-bg);
 }
 .about-company__inner {
   max-width: 880px;

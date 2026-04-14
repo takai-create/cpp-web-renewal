@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import content from "../data/content.json";
 
-const { hero, philosophy, businessSection, numbers, news, cta } = content;
+const { hero, businessSection, numbers, news, cta } = content;
 
 export default function HomeV2() {
   const [current, setCurrent] = useState(0);
@@ -86,6 +86,8 @@ export default function HomeV2() {
       </section>
 
       {/* ===== Philosophy ===== */}
+      {/* メッセージ方針が固まるまで非公開（AIが動き... と 挑戦する人... のポジション検討中） */}
+      {/*
       <section id="about" className="v2-philosophy">
         <div className="v2-philosophy__inner v2-fade">
           <p className="v2-philosophy__label">{philosophy.label}</p>
@@ -104,6 +106,7 @@ export default function HomeV2() {
           </a>
         </div>
       </section>
+      */}
 
       {/* ===== Business ===== */}
       <section id="business" className="v2-section v2-section--alt">
@@ -170,9 +173,6 @@ export default function HomeV2() {
         <div className="v2-section__inner v2-fade">
           <div className="v2-news-header">
             <h2 className="v2-news-header__title">{news.title}</h2>
-            <a href="/news" className="v2-news-header__more">
-              {news.moreLink}
-            </a>
           </div>
           <ul className="v2-news-list">
             {news.items.map((item, i) => (

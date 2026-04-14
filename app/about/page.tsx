@@ -28,19 +28,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== Message ===== */}
-      <section className="about-message">
-        <div className="about-message__inner v2-fade">
-          <h2 className="about-message__title">{aboutPage.messageTitle}</h2>
-          {aboutPage.messageParagraphs.map((p, i) => (
-            <p key={i} className="about-message__text">
-              {p}
-            </p>
-          ))}
-          <p className="about-message__signature">{aboutPage.messageSignature}</p>
-        </div>
-      </section>
-
       {/* ===== Company Info ===== */}
       <section className="about-company">
         <div className="about-company__inner v2-fade">
@@ -53,6 +40,19 @@ export default function AboutPage() {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      {/* ===== Message ===== */}
+      <section className="about-message">
+        <div className="about-message__inner v2-fade">
+          <h2 className="about-message__title">{aboutPage.messageTitle}</h2>
+          {aboutPage.messageParagraphs.map((p, i) => (
+            <p key={i} className="about-message__text">
+              {p}
+            </p>
+          ))}
+          <p className="about-message__signature">{aboutPage.messageSignature}</p>
         </div>
       </section>
 
