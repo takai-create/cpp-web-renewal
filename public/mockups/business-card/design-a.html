@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>名刺 Design A: First Touch ヒーロー型</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #004ea2;
+    --brand-dark: #003b7a;
+    --text: #1a1a1a;
+    --muted: #666;
+  }
+  body {
+    margin: 0;
+    padding: 60px 20px;
+    background: #e8eaed;
+    font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .label {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 0.05em;
+  }
+  /* 91mm × 55mm at ~8x scale */
+  .card {
+    width: 728px;
+    height: 440px;
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+  }
+  /* Top hero section */
+  .hero {
+    flex: 0 0 235px;
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+    color: #fff;
+    padding: 36px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -80px;
+    bottom: -80px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  }
+  .hero__brand {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 14px;
+  }
+  .hero__name {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    margin: 0 0 14px;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  .hero__name-jp {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero__catch {
+    font-size: 17px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.5;
+  }
+  /* Bottom info section */
+  .info {
+    flex: 1;
+    padding: 28px 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 30px;
+    align-items: start;
+  }
+  .info__left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .info__name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 4px;
+  }
+  .info__name {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.04em;
+  }
+  .info__name-en {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+  }
+  .info__title {
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+  .info__contact {
+    font-size: 11px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .info__company {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+  .info__right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .logo-img {
+    height: 28px;
+    width: auto;
+  }
+  .url {
+    font-size: 11px;
+    color: var(--brand);
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+  <p class="label">Design A — First Touch ヒーロー型</p>
+  <div class="card">
+    <div class="hero">
+      <p class="hero__brand">FIRST TOUCH &nbsp;by&nbsp; TALK INSIGHTS</p>
+      <h1 class="hero__name">First Touch</h1>
+      <p class="hero__name-jp">AI営業プラットフォーム</p>
+      <p class="hero__catch">出会いを商談に変える。話すだけ。</p>
+    </div>
+    <div class="info">
+      <div class="info__left">
+        <div class="info__name-row">
+          <span class="info__name">髙井 信洋</span>
+          <span class="info__name-en">Nobuhiro Takai</span>
+        </div>
+        <p class="info__title">代表取締役 / 経済産業省推進資格 ITコーディネータ</p>
+        <p class="info__contact">
+          mobile 090-4520-8884 &nbsp;・&nbsp; office 03-6824-7603<br>
+          takai@crowdpower-partners.com
+        </p>
+        <p class="info__company">
+          Crowd Power Partners株式会社<br>
+          〒105-0004 東京都港区新橋2-20-15 新橋駅前ビル1号館6階<br>
+          〒950-0901 新潟県新潟市中央区弁天2-1-1 弁天ビル5F
+        </p>
+      </div>
+      <div class="info__right">
+        <img src="/images/logo/logo-horizontal-color.png" alt="Crowd Power Partners" class="logo-img">
+        <p class="url">crowdpower-partners.com</p>
+        <p class="url">talk-insights.com</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

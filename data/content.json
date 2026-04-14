@@ -21,14 +21,15 @@
         "sub": "テクノロジーの力を、人の知恵で事業に変える。\nCrowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。"
       },
       {
-        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80",
-        "copy": "仕組みで、人を自由にする。",
-        "sub": "DXコンサルティングで組織の可能性を開き、\nテクノロジーを現場に届けます。"
+        "image": "/images/photos/service/firsttouch-hero.jpg",
+        "copy": "出会いを、商談に変える。",
+        "sub": "First Touch by Talk Insightsは、名刺交換後の30秒から\nAIが商談の入り口を自動で創り出します。",
+        "noOverlay": true
       },
       {
-        "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=80",
-        "copy": "出会いを、商談に変える。",
-        "sub": "Talk Insightsは、名刺交換後の会話から\n次のビジネスチャンスを自動で創り出します。"
+        "image": "/images/photos/coworking/cwbenten-hero.jpg",
+        "copy": "24時間、無人で動く仕事場。",
+        "sub": "コワーキング新潟弁天は、新潟の挑戦者が集まる拠点として\n24時間無人運営で新しい働き方を支えます。"
       }
     ],
     "ctaPrimary": "お問い合わせ",
@@ -62,7 +63,7 @@
         "nameNote": "by Talk Insights",
         "catch": "出会いを商談に変える。話すだけ。",
         "desc": "名刺交換後の音声メモをAIが要約し、Gmailでフォローアップメールを自動生成するAI SaaS。",
-        "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
+        "image": "/images/photos/service/firsttouch-card.jpg",
         "href": "/business#talk-insights"
       },
       {
@@ -70,7 +71,7 @@
         "name": "コワーキング新潟弁天",
         "catch": "24時間、無人で動く。あなたの仕事場。",
         "desc": "24時間無人運営のコワーキングスペース。地域とビジネスをつなぎ、新しい働き方の場を創出します。",
-        "image": "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=800&q=80",
+        "image": "/images/photos/coworking/cwbenten-card.jpg",
         "href": "/business#coworking"
       }
     ]
@@ -421,7 +422,7 @@
           { "title": "Gmailフォローアップ自動生成", "desc": "要約をもとに、パーソナライズされたフォローメールの下書きを生成します。" },
           { "title": "月額¥800〜の手軽さ", "desc": "個人事業主や小規模チームでも導入しやすい価格設計です。" }
         ],
-        "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80",
+        "image": "/images/photos/service/firsttouch-biz.jpg",
         "news": [
           { "date": "2025/03/15", "title": "Talk Insights 正式リリースのお知らせ" },
           { "date": "2025/02/20", "title": "ベータ版ユーザー1,000名を突破" }
@@ -441,7 +442,7 @@
           { "title": "コミュニティ拠点", "desc": "地域の起業家・フリーランスが集まり、新しいビジネスが生まれる場を提供します。" },
           { "title": "柔軟な料金プラン", "desc": "ドロップイン・月額会員など、利用スタイルに合わせたプランを用意しています。" }
         ],
-        "image": "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=1200&q=80",
+        "image": "/images/photos/coworking/cwbenten-biz.jpg",
         "news": [
           { "date": "2025/03/01", "title": "コワーキング新潟弁天がオープンしました" },
           { "date": "2025/02/15", "title": "オープニングイベントの参加者募集を開始" }

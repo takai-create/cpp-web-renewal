@@ -43,14 +43,22 @@ export default function HomeV2() {
             style={{ backgroundImage: `url(${s.image})`, opacity: i === current ? 1 : 0 }}
           />
         ))}
-        <div className="v2-hero__overlay" />
+        {!slide.noOverlay && <div className="v2-hero__overlay" />}
 
         <div className="v2-hero__content" key={current}>
           <h1 className="v2-hero__title">{slide.copy}</h1>
           <p className="v2-hero__sub">
             {slide.sub.split("\n").map((line, i) => (
               <span key={i}>
-                {line}
+                {line.split(/(First Touch)/).map((part, j) =>
+                  part === "First Touch" ? (
+                    <span key={j} className="v2-hero__sub-highlight">
+                      {part}
+                    </span>
+                  ) : (
+                    part
+                  )
+                )}
                 <br />
               </span>
             ))}

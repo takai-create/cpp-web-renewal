@@ -183,6 +183,10 @@
   max-width: 520px;
 }
 
+.v2-hero__sub-highlight {
+  color: #ffffff;
+}
+
 .v2-hero__actions {
   display: flex;
   gap: 0.75rem;
