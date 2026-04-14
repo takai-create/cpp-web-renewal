@@ -48,8 +48,13 @@ export default function BusinessPage() {
           <div className="biz-service__inner">
             <div className="biz-service__top v2-fade">
               <div className="biz-service__meta">
-                <span className="biz-service__number">({svc.number})</span>
-                <h2 className="biz-service__name">{svc.name}</h2>
+                <span className="biz-service__number">{svc.number}</span>
+                <h2 className="biz-service__name">
+                  {svc.name}
+                  {svc.nameNote && (
+                    <span className="biz-service__name-note"> {svc.nameNote}</span>
+                  )}
+                </h2>
               </div>
               <div className="biz-service__image">
                 <img src={svc.image} alt={svc.name} loading="lazy" />
@@ -89,17 +94,19 @@ export default function BusinessPage() {
               </div>
             </div>
 
-            <div className="biz-service__news v2-fade">
-              <p className="biz-service__news-label">Service News</p>
-              <ul className="biz-service__news-list">
-                {svc.news.map((n, i) => (
-                  <li key={i} className="biz-service__news-item">
-                    <span className="biz-service__news-date">{n.date}</span>
-                    <span className="biz-service__news-title">{n.title}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {svc.news.length > 0 && (
+              <div className="biz-service__news v2-fade">
+                <p className="biz-service__news-label">Service News</p>
+                <ul className="biz-service__news-list">
+                  {svc.news.map((n, i) => (
+                    <li key={i} className="biz-service__news-item">
+                      <span className="biz-service__news-date">{n.date}</span>
+                      <span className="biz-service__news-title">{n.title}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </section>
       ))}

@@ -85,16 +85,21 @@
 }
 
 .biz-service__meta {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
   padding-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .biz-service__number {
-  font-family: var(--v2-font);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--v2-brand);
-  display: block;
-  margin-bottom: 0.75rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  color: #e6e8ed;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  user-select: none;
 }
 
 .biz-service__name {
@@ -104,6 +109,16 @@
   color: var(--v2-dark);
   margin: 0;
   line-height: 1.2;
+  padding-bottom: 0.4rem;
+}
+.biz-service__name-note {
+  display: inline-block;
+  font-size: 0.45em;
+  font-weight: 400;
+  color: var(--v2-text-light);
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+  margin-left: 0.4em;
 }
 
 .biz-service__image {

@@ -26,9 +26,10 @@ export const metadata: Metadata = {
       "DXコンサルティング、AI営業プラットフォーム「First Touch by Talk Insights」、コワーキング新潟弁天を展開。",
     images: [
       {
-        url: "https://crowdpower-partners.com/og-image.png",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
+        alt: "Crowd Power Partners | AIが動き、人が深める。",
       },
     ],
   },

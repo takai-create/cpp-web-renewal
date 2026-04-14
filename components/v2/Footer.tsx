@@ -21,7 +21,11 @@ export default function Footer() {
               <ul className="v2-footer__links">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href}>{link.label}</a>
+                    {link.href ? (
+                      <a href={link.href}>{link.label}</a>
+                    ) : (
+                      <span className="v2-footer__link--plain">{link.label}</span>
+                    )}
                   </li>
                 ))}
               </ul>

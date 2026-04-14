@@ -37,7 +37,7 @@ export default function Header() {
           <img src={logoSrc} alt={site.name} className="v2-header__logo-img" />
         </a>
         <nav className={`v2-header__nav ${menuOpen ? "v2-header__nav--open" : ""}`}>
-          <a href={link("about")} className="v2-header__link" onClick={close}>
+          <a href="/about" className="v2-header__link" onClick={close}>
             {nav.about}
           </a>
           <a href="/business" className="v2-header__link" onClick={close}>
@@ -45,9 +45,6 @@ export default function Header() {
           </a>
           <a href={link("news")} className="v2-header__link" onClick={close}>
             {nav.news}
-          </a>
-          <a href={link("careers")} className="v2-header__link" onClick={close}>
-            {nav.careers}
           </a>
           <a href={link("contact")} className="v2-header__cta" onClick={close}>
             {nav.contact}

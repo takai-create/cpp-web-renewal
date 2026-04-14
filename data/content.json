@@ -16,7 +16,7 @@
   "hero": {
     "slides": [
       {
-        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80",
+        "image": "/images/photos/hero/hero-office.jpg",
         "copy": "AIが動き、人が深める。",
         "sub": "テクノロジーの力を、人の知恵で事業に変える。\nCrowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。"
       },
@@ -52,8 +52,8 @@
       {
         "category": "エキスパート支援",
         "name": "DXコンサルティング",
-        "catch": "テクノロジーで、組織の可能性を開く",
-        "desc": "Google Workspace リセラーを含むDX支援。中小〜中堅企業の業務改革と組織変革を実現します。",
+        "catch": "デジタルで、組織の可能性を開く",
+        "desc": "DXプロ人材による戦略策定から導入・運用まで。現場に寄り添う伴走型で、企業の業務改革と組織変革を実現します。",
         "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
         "href": "/business#dx"
       },
@@ -62,7 +62,7 @@
         "name": "First Touch",
         "nameNote": "by Talk Insights",
         "catch": "出会いを商談に変える。話すだけ。",
-        "desc": "名刺交換後の音声メモをAIが要約し、Gmailでフォローアップメールを自動生成するAI SaaS。",
+        "desc": "名刺交換後の音声メモをAIが要約し、フォローアップメールの下書きを自動生成するAI SaaS。",
         "image": "/images/photos/service/firsttouch-card.jpg",
         "href": "/business#talk-insights"
       },
@@ -70,7 +70,7 @@
         "category": "ワークスペース",
         "name": "コワーキング新潟弁天",
         "catch": "24時間、無人で動く。あなたの仕事場。",
-        "desc": "24時間無人運営のコワーキングスペース。地域とビジネスをつなぎ、新しい働き方の場を創出します。",
+        "desc": "新潟駅徒歩3分・24時間無人運営のコワーキングスペース。店舗DXの実証ラボと地域拠点の両面で機能します。",
         "image": "/images/photos/coworking/cwbenten-card.jpg",
         "href": "/business#coworking"
       }
@@ -109,30 +109,27 @@
         "links": [
           { "label": "私たちについて", "href": "/about" },
           { "label": "代表メッセージ", "href": "/about" },
-          { "label": "会社概要・アクセス", "href": "/about" },
-          { "label": "沿革", "href": "/about" }
+          { "label": "会社概要・アクセス", "href": "/about" }
         ]
       },
       {
         "title": "事業・サービス",
         "links": [
           { "label": "DXコンサルティング", "href": "/business#dx" },
-          { "label": "Talk Insights", "href": "/business#talk-insights" },
-          { "label": "コワーキング新潟弁天", "href": "/business#coworking" }
+          { "label": "営業AI／DX", "href": "/business#talk-insights" },
+          { "label": "コワーキング新潟弁天", "href": "/business#coworking" },
+          { "label": "翻訳・通訳" }
         ]
       },
       {
-        "title": "お問い合わせ・採用",
+        "title": "お問い合わせ",
         "links": [
-          { "label": "お問い合わせ", "href": "/contact" },
-          { "label": "採用情報", "href": "/careers" },
-          { "label": "募集職種", "href": "/careers" }
+          { "label": "お問い合わせ", "href": "/contact" }
         ]
       }
     ],
     "legal": [
-      { "label": "プライバシーポリシー", "href": "/privacy" },
-      { "label": "利用規約", "href": "/terms" }
+      { "label": "プライバシーポリシー", "href": "/privacy" }
     ]
   },
 
@@ -354,25 +351,25 @@
     "companyInfo": [
       { "label": "商号", "value": "Crowd Power Partners株式会社" },
       { "label": "設立", "value": "2013年4月18日" },
-      { "label": "代表者", "value": "代表取締役 高井 信洋" },
+      { "label": "代表者", "value": "高井 信洋" },
       { "label": "資本金", "value": "9,500,000円" },
       { "label": "本社所在地", "value": "〒105-0004 東京都港区新橋2-20-15 新橋駅前ビル1号館6階" },
       { "label": "新潟支社", "value": "〒950-0901 新潟県新潟市中央区弁天2-1-1 弁天ビル5F" },
       { "label": "事業内容", "value": "DXコンサルティング / AI営業プラットフォーム「First Touch by Talk Insights」の開発・提供 / コワーキングスペース「コワーキング新潟弁天」の運営 / 翻訳支援サービス" },
       { "label": "許認可", "value": "有料職業紹介事業 許可番号 13-ユ-311625" }
     ],
-    "ctaTitle": "一緒に、その可能性を切り拓きましょう。",
+    "ctaTitle": "お気軽にご相談ください。",
     "ctaItems": [
       { "title": "事業について相談する", "desc": "パートナーシップや事業相談はこちらから。", "href": "/contact?type=business" },
       { "title": "採用情報を見る", "desc": "共に未来を創る仲間を募集しています。", "href": "/contact?type=careers" },
-      { "title": "お問い合わせ", "desc": "その他のお問い合わせはこちらから。", "href": "/contact" }
+      { "title": "資料請求", "desc": "サービスや事業について、詳しい資料をご用意します。", "href": "/contact?type=document" }
     ]
   },
 
   "businessPage": {
     "label": "Business",
     "title": "事業紹介",
-    "subtitle": "テクノロジー × 人 × 場 で、事業を創る",
+    "subtitle": "デジタル × 人 × 場 で、事業を創る",
     "ctaTitle": "まずはお気軽にご相談ください。",
     "ctaItems": [
       { "title": "事業について相談する", "desc": "パートナーシップや事業相談はこちらから。", "href": "/contact?type=business" },
@@ -385,18 +382,15 @@
         "number": "01",
         "category": "DXコンサルティング",
         "name": "DXコンサルティング",
-        "headline": "テクノロジーで、組織の可能性を開く",
-        "description": "デジタル化が進んでいない中小〜中堅企業に対し、Google Workspaceをはじめとするクラウドツールの導入・運用支援を提供。業務フローの見直しから組織変革まで、現場に寄り添った伴走型のDX支援を行っています。",
+        "headline": "デジタルで、組織の可能性を開く",
+        "description": "DXプロ人材による中長期DX導入定着支援、中小企業向けDX伴走支援など、DX戦略策定〜導入伴走、DX事業開発〜販売支援まで、業務フローの見直しから組織変革まで、現場に寄り添った伴走型のDX支援を行っています。経済産業省推進資格 ITコーディネータ／Google Generative AI Leader／Google Cloud Digital Leader",
         "features": [
-          { "title": "Google Workspace リセラー", "desc": "導入設計から運用定着まで、GWSの活用を一気通貫で支援します。" },
-          { "title": "業務プロセス改善", "desc": "既存業務のデジタル化と自動化により、組織の生産性を向上させます。" },
-          { "title": "DX戦略策定", "desc": "経営課題に合わせたDXロードマップの策定と実行を支援します。" }
+          { "title": "業務プロセス改善／営業DX／サービス開発", "desc": "既存業務のデジタル化と自動化から、売上向上まで一気通貫で支援いたします。" },
+          { "title": "DXツール導入〜開発支援", "desc": "DX・AIツール選定導入・開発運用支援も対応可能です。" },
+          { "title": "DX戦略策定／事業開発", "desc": "経営課題に合わせたDXロードマップの策定と実行を支援します。" }
         ],
         "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
-        "news": [
-          { "date": "2025/04/03", "title": "GWS導入支援の新プランを発表しました" },
-          { "date": "2025/03/15", "title": "中小企業DX推進セミナーを開催" }
-        ],
+        "news": [],
         "link": "/contact?type=dx",
         "linkLabel": "DXについて相談する"
       },
@@ -404,18 +398,18 @@
         "id": "talk-insights",
         "number": "02",
         "category": "AI SaaS",
-        "name": "Talk Insights",
+        "name": "First Touch",
+        "nameNote": "by Talk Insights",
         "headline": "出会いを商談に変える。話すだけ。",
-        "description": "名刺交換後に音声メモを録音するだけで、AIが会話内容を要約し、Gmailでフォローアップメールの下書きを自動生成。ネットワーキングが活発な中小企業オーナー・士業・専門職の方に向けた、商談化率を高めるAI SaaSです。",
+        "description": "名刺交換後に音声メモを録音するだけで、AIが会話内容を要約し、フォローアップメールの下書きを自動生成。名刺交換を起点として商談化率を高めるAI SaaSです。",
         "features": [
           { "title": "音声メモから自動要約", "desc": "名刺交換後の短い会話を録音し、AIが要点を即座にまとめます。" },
-          { "title": "Gmailフォローアップ自動生成", "desc": "要約をもとに、パーソナライズされたフォローメールの下書きを生成します。" },
-          { "title": "月額¥800〜の手軽さ", "desc": "個人事業主や小規模チームでも導入しやすい価格設計です。" }
+          { "title": "フォローアップ自動生成", "desc": "要約をもとに、パーソナライズされたフォローメールの下書きを生成します。" },
+          { "title": "無料プラン／月額900円／Enterpriseプラン", "desc": "個人事業主や小規模チームでも導入しやすい価格設計です。（kintone連携機能）" }
         ],
         "image": "/images/photos/service/firsttouch-biz.jpg",
         "news": [
-          { "date": "2025/03/15", "title": "Talk Insights 正式リリースのお知らせ" },
-          { "date": "2025/02/20", "title": "ベータ版ユーザー1,000名を突破" }
+          { "date": "2025/03/27", "title": "First Touch by Talk Insights リリースのお知らせ" }
         ],
         "link": "/contact?type=talk-insights",
         "linkLabel": "詳細はこちら"
@@ -426,16 +420,16 @@
         "category": "コワーキングスペース",
         "name": "コワーキング新潟弁天",
         "headline": "24時間、無人で動く。あなたの仕事場。",
-        "description": "新潟・弁天エリアに位置する24時間無人運営のコワーキングスペース。スマートロックによる入退室管理で、時間に縛られない柔軟な働き方を実現。地域のビジネスパーソンや起業家のコミュニティ拠点として機能しています。",
+        "description": "新潟駅徒歩3分に位置する24時間無人運営のコワーキング新潟弁天。スマートロックによる入退室管理し、店舗DXのラボの側面と地域のビジネスパーソンや起業家の活動拠点の両面で機能しています。",
         "features": [
-          { "title": "24時間無人運営", "desc": "スマートロックとキャッシュレス決済で、完全無人での運営を実現しています。" },
-          { "title": "コミュニティ拠点", "desc": "地域の起業家・フリーランスが集まり、新しいビジネスが生まれる場を提供します。" },
-          { "title": "柔軟な料金プラン", "desc": "ドロップイン・月額会員など、利用スタイルに合わせたプランを用意しています。" }
+          { "title": "24時間無人運営・防音個室完備", "desc": "スマートロックとキャッシュレス決済で、無人運営を実現しています。" },
+          { "title": "セミナー・コミュニティ拠点", "desc": "起業家・フリーランス、学習者が集まり、新たなタッチポイントが生まれる場を提供します。" },
+          { "title": "店舗DXの実証拠点として", "desc": "店舗無人化、省人化、入退室、防犯カメラなど店舗DXの実証の場としても協業提供しております。" }
         ],
         "image": "/images/photos/coworking/cwbenten-biz.jpg",
         "news": [
-          { "date": "2025/03/01", "title": "コワーキング新潟弁天がオープンしました" },
-          { "date": "2025/02/15", "title": "オープニングイベントの参加者募集を開始" }
+          { "date": "2025/09/01", "title": "セミナールーム・個室ブース（4人用、1人用）を増設しました" },
+          { "date": "2024/04/30", "title": "コワーキング新潟弁天をオープンしました" }
         ],
         "link": "/contact?type=coworking",
         "linkLabel": "利用を申し込む"

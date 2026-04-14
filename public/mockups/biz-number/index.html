@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>事業番号デザイン3案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #004ea2;
+    --dark: #0a0a0a;
+    --text: #333;
+    --muted: #999;
+    --border: #e8e8e8;
+    --bg-alt: #f7f8fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+    background: #fff;
+    color: var(--text);
+  }
+  .header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px 30px;
+  }
+  h1 { font-size: 26px; margin: 0 0 8px; }
+  .lead { color: #666; font-size: 14px; }
+
+  .variant {
+    border-top: 1px solid var(--border);
+    padding: 60px 0;
+  }
+  .variant:nth-child(even) { background: var(--bg-alt); }
+  .variant__label {
+    max-width: 1100px;
+    margin: 0 auto 24px;
+    padding: 0 40px;
+  }
+  .variant__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 4px;
+  }
+  .variant__desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.8;
+  }
+  .demo {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ============================================
+     Version A: 現在（参考）
+     ============================================ */
+  .vA-meta {
+    padding-top: 1rem;
+  }
+  .vA-num {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--brand);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .vA-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+
+  /* ============================================
+     Version B: 大きなアウトライン番号を背景に
+     ============================================ */
+  .vB-meta {
+    position: relative;
+    padding: 40px 0 20px;
+  }
+  .vB-num {
+    position: absolute;
+    top: -30px;
+    left: -12px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 180px;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #d8dde4;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+  .vB-name {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+
+  /* ============================================
+     Version C: 超薄グレーの大きな塗り番号を背景に
+     ============================================ */
+  .vC-meta {
+    position: relative;
+    padding: 50px 0 20px;
+  }
+  .vC-num {
+    position: absolute;
+    top: -10px;
+    left: -8px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 200px;
+    font-weight: 900;
+    color: #eef0f4;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+  .vC-name {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+
+  /* ============================================
+     Version D: 番号を左側に大きく配置（ラベル風）
+     ============================================ */
+  .vD-meta {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    padding-top: 20px;
+  }
+  .vD-num {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 120px;
+    font-weight: 900;
+    color: #e8eaef;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    user-select: none;
+  }
+  .vD-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    padding-bottom: 14px;
+  }
+
+  .ghost {
+    color: #999;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>事業番号 (01/02/03) の表示パターン 3案</h1>
+    <p class="lead">数字を大きくグレーで背景素材のように見せる案を検討。現在と比べて確認してください。</p>
+  </div>
+
+  <!-- 現在（参考） -->
+  <section class="variant">
+    <div class="variant__label">
+      <p class="variant__title">【現在】Version A</p>
+      <p class="variant__desc">小さなラベルとして表示。番号の存在感は弱く、ブランド色で目立たせる最小限の表現。</p>
+    </div>
+    <div class="demo">
+      <div class="vA-meta">
+        <span class="vA-num">(01)</span>
+        <h2 class="vA-name">DXコンサルティング</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Version B: アウトライン -->
+  <section class="variant">
+    <div class="variant__label">
+      <p class="variant__title">Version B — アウトライン番号</p>
+      <p class="variant__desc">大きな数字を枠線のみ（中抜き）で背景に配置。控えめでモダン、テキストを邪魔しない。</p>
+    </div>
+    <div class="demo">
+      <div class="vB-meta">
+        <span class="vB-num">01</span>
+        <h2 class="vB-name">DXコンサルティング</h2>
+      </div>
+      <p class="ghost">※ タイトルの後ろに大きく表示される数字がポイント</p>
+    </div>
+  </section>
+
+  <!-- Version C: 薄グレー塗り -->
+  <section class="variant">
+    <div class="variant__label">
+      <p class="variant__title">Version C — 薄グレー塗りの大きな番号</p>
+      <p class="variant__desc">極薄グレーで大きく塗った数字を背景に配置。存在感があり、デザインのアクセントになる。</p>
+    </div>
+    <div class="demo">
+      <div class="vC-meta">
+        <span class="vC-num">01</span>
+        <h2 class="vC-name">DXコンサルティング</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Version D: 左横並び -->
+  <section class="variant">
+    <div class="variant__label">
+      <p class="variant__title">Version D — 左に並べる</p>
+      <p class="variant__desc">大きなグレー数字をタイトルの左に並べて配置。雑誌のようなエディトリアル感。</p>
+    </div>
+    <div class="demo">
+      <div class="vD-meta">
+        <span class="vD-num">01</span>
+        <h2 class="vD-name">DXコンサルティング</h2>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
