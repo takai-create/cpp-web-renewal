@@ -64,27 +64,44 @@ export default function ContactPage() {
         },
       });
 
-      if (response.ok) {
-        setStatus("success");
-        form.reset();
-        setSelectedType("");
-        // 成功メッセージエリアへスクロール
-        setTimeout(() => {
-          document
-            .querySelector(".contact-form__status")
-            ?.scrollIntoView({ behavior: "smooth", block: "center" });
-        }, 100);
-      } else {
-        const data = await response.json().catch(() => ({}));
+      // GAS は常に 200 を返し、ボディの ok で成否を判定
+      // Formspree / Web3Forms は HTTP ステータスで判定
+      if (!response.ok) {
         setStatus("error");
-        if (data && Array.isArray((data as { errors?: Array<{ message: string }> }).errors)) {
-          setErrorDetail(
-            (data as { errors: Array<{ message: string }> }).errors
-              .map((err) => err.message)
-              .join(" / ")
-          );
+        try {
+          const errorData = await response.json();
+          const errors = (errorData as { errors?: Array<{ message: string }> }).errors;
+          if (Array.isArray(errors)) {
+            setErrorDetail(errors.map((err) => err.message).join(" / "));
+          }
+        } catch {
+          // JSONパース失敗時は詳細なし
         }
+        return;
       }
+
+      // レスポンスボディの ok フラグをチェック（GAS対応）
+      const data = await response
+        .json()
+        .catch(() => ({ ok: true } as { ok: boolean; error?: string }));
+
+      if (data.ok === false) {
+        setStatus("error");
+        if (typeof data.error === "string") {
+          setErrorDetail(data.error);
+        }
+        return;
+      }
+
+      // 成功
+      setStatus("success");
+      form.reset();
+      setSelectedType("");
+      setTimeout(() => {
+        document
+          .querySelector(".contact-form__status")
+          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
     } catch (err) {
       setStatus("error");
       setErrorDetail(err instanceof Error ? err.message : "不明なエラー");
