@@ -4,7 +4,11 @@ import Header from "../components/v2/Header";
 import Footer from "../components/v2/Footer";
 
 export const metadata: Metadata = {
-  title: "Crowd Power Partners | AIが動き、人が深める。",
+  metadataBase: new URL("https://crowdpower-partners.com"),
+  title: {
+    default: "Crowd Power Partners | AIが動き、人が深める。",
+    template: "%s",
+  },
   description:
     "DXコンサルティング、AI営業プラットフォーム「First Touch by Talk Insights」、コワーキング新潟弁天を展開。テクノロジーと人の力で事業を創る。",
   keywords: [
@@ -17,10 +21,19 @@ export const metadata: Metadata = {
     "コワーキング",
     "新潟",
   ],
+  authors: [{ name: "Crowd Power Partners" }],
+  creator: "Crowd Power Partners",
+  publisher: "Crowd Power Partners",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "ja_JP",
     url: "https://crowdpower-partners.com",
+    siteName: "Crowd Power Partners",
     title: "Crowd Power Partners | AIが動き、人が深める。",
     description:
       "DXコンサルティング、AI営業プラットフォーム「First Touch by Talk Insights」、コワーキング新潟弁天を展開。",
@@ -32,6 +45,26 @@ export const metadata: Metadata = {
         alt: "Crowd Power Partners | AIが動き、人が深める。",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crowd Power Partners | AIが動き、人が深める。",
+    description:
+      "DXコンサルティング、AI営業プラットフォーム「First Touch by Talk Insights」、コワーキング新潟弁天を展開。",
+    images: ["/opengraph-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://crowdpower-partners.com",
   },
 };
 
