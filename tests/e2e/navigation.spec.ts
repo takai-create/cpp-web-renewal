@@ -1,14 +1,27 @@
 import { test, expect } from "@playwright/test";
 
+/** モバイルビューではハンバーガーメニューを開いてからクリック */
+async function openMenuIfMobile(page: import("@playwright/test").Page) {
+  const isMobile = page.viewportSize()!.width < 768;
+  if (isMobile) {
+    const toggle = page.locator("button.v2-header__toggle");
+    if (await toggle.isVisible()) {
+      await toggle.click();
+    }
+  }
+}
+
 test.describe("ヘッダーナビゲーション", () => {
   test("トップ → 私たちについて へ遷移", async ({ page }) => {
     await page.goto("/");
+    await openMenuIfMobile(page);
     await page.locator("header").getByRole("link", { name: "私たちについて" }).click();
     await expect(page).toHaveURL(/\/about/);
   });
 
   test("トップ → 事業紹介 へ遷移", async ({ page }) => {
     await page.goto("/");
+    await openMenuIfMobile(page);
     await page.locator("header").getByRole("link", { name: "事業紹介" }).click();
     await expect(page).toHaveURL(/\/business/);
   });
