@@ -108,7 +108,6 @@
         "title": "企業情報",
         "links": [
           { "label": "私たちについて", "href": "/about" },
-          { "label": "代表メッセージ", "href": "/about" },
           { "label": "会社概要・アクセス", "href": "/about" }
         ]
       },

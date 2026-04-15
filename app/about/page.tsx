@@ -43,19 +43,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== Message ===== */}
-      <section className="about-message">
-        <div className="about-message__inner v2-fade">
-          <h2 className="about-message__title">{aboutPage.messageTitle}</h2>
-          {aboutPage.messageParagraphs.map((p, i) => (
-            <p key={i} className="about-message__text">
-              {p}
-            </p>
-          ))}
-          <p className="about-message__signature">{aboutPage.messageSignature}</p>
-        </div>
-      </section>
-
       {/* ===== CTA ===== */}
       <section className="v2-cta">
         <div className="v2-section__inner v2-fade">
