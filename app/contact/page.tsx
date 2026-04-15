@@ -125,7 +125,7 @@ export default function ContactPage() {
       {/* ===== Form ===== */}
       <section className="contact-form-section">
         {status === "success" && (
-          <div className="contact-form contact-form__status contact-form__status--success v2-fade">
+          <div className="contact-form contact-form__status contact-form__status--success v2-visible">
             <svg
               width="48"
               height="48"
@@ -149,7 +149,7 @@ export default function ContactPage() {
         )}
 
         {showForm && (
-          <form className="contact-form v2-fade" onSubmit={handleSubmit} noValidate>
+          <form className="contact-form v2-visible" onSubmit={handleSubmit} noValidate>
             {status === "error" && (
               <div className="contact-form__alert contact-form__alert--error" role="alert">
                 <strong>送信エラー</strong>

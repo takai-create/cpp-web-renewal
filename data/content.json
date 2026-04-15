@@ -295,8 +295,8 @@
     "label": "Contact",
     "title": "お問い合わせ",
     "subtitle": "事業相談・採用・取材・資料請求まで、お気軽にご連絡ください。",
-    "formAction": "",
-    "formActionNote": "Formspreeエンドポイント (例: https://formspree.io/f/xxxxxxxx) を設定。空の場合は「準備中」メッセージを表示",
+    "formAction": "https://script.google.com/macros/s/AKfycbz20OAiijbwsevGYe5qnlOT0ChxDBoQ-sNOzPpwvDWZyJPq1knQzEZfVroftE8YCkws/exec",
+    "formActionNote": "Google Apps Script (GAS) ウェブアプリのエンドポイント",
     "successMessage": "お問い合わせありがとうございます。内容を確認のうえ、担当者よりご連絡いたします。",
     "errorMessage": "送信に失敗しました。時間をおいて再度お試しいただくか、直接ご連絡ください。",
     "fields": {
