@@ -7,9 +7,12 @@ import content from "../../data/content.json";
 const { contactPage } = content;
 const { fields, types, offices } = contactPage;
 
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 export default function ContactPage() {
   const [selectedType, setSelectedType] = useState("");
-  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorDetail, setErrorDetail] = useState<string>("");
 
   // URLパラメータから種別を初期選択（例: /contact?type=business）
   useEffect(() => {
@@ -30,13 +33,66 @@ export default function ContactPage() {
     return () => obs.disconnect();
   }, []);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitting(true);
-    // TODO: フォーム送信先（Googleフォーム or 別サービス）が確定したら接続
-    alert("お問い合わせフォームの送信先は現在準備中です。\n決定次第、こちらから送信できるようになります。");
-    setSubmitting(false);
+
+    // 送信先未設定時: 準備中メッセージ
+    if (!contactPage.formAction) {
+      alert(
+        "お問い合わせフォームは現在準備中です。\n恐れ入りますが、しばらくお待ちください。"
+      );
+      return;
+    }
+
+    setStatus("submitting");
+    setErrorDetail("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // 種別を人間が読めるラベルに変換して送信
+    const typeValue = formData.get("type") as string;
+    const typeLabel = types.find((t) => t.value === typeValue)?.label || typeValue;
+    formData.set("typeLabel", typeLabel);
+
+    try {
+      const response = await fetch(contactPage.formAction, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+        setSelectedType("");
+        // 成功メッセージエリアへスクロール
+        setTimeout(() => {
+          document
+            .querySelector(".contact-form__status")
+            ?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 100);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        setStatus("error");
+        if (data && Array.isArray((data as { errors?: Array<{ message: string }> }).errors)) {
+          setErrorDetail(
+            (data as { errors: Array<{ message: string }> }).errors
+              .map((err) => err.message)
+              .join(" / ")
+          );
+        }
+      }
+    } catch (err) {
+      setStatus("error");
+      setErrorDetail(err instanceof Error ? err.message : "不明なエラー");
+    }
   };
+
+  const isSubmitting = status === "submitting";
+  const showForm = status !== "success";
 
   return (
     <main className="contact-page">
@@ -51,163 +107,229 @@ export default function ContactPage() {
 
       {/* ===== Form ===== */}
       <section className="contact-form-section">
-        <form className="contact-form v2-fade" onSubmit={handleSubmit} noValidate>
-          {/* お名前 */}
-          <div className="contact-form__field">
-            <label className="contact-form__label" htmlFor="name">
-              {fields.name}
-              <span className="contact-form__badge contact-form__badge--required">
-                {fields.required}
-              </span>
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              autoComplete="name"
-              className="contact-form__input"
-            />
-          </div>
-
-          {/* 会社名 */}
-          <div className="contact-form__field">
-            <label className="contact-form__label" htmlFor="company">
-              {fields.company}
-              <span className="contact-form__badge contact-form__badge--optional">
-                {fields.optional}
-              </span>
-            </label>
-            <input
-              id="company"
-              name="company"
-              type="text"
-              autoComplete="organization"
-              className="contact-form__input"
-            />
-          </div>
-
-          {/* URL */}
-          <div className="contact-form__field">
-            <label className="contact-form__label" htmlFor="url">
-              {fields.url}
-              <span className="contact-form__badge contact-form__badge--optional">
-                {fields.optional}
-              </span>
-            </label>
-            <input
-              id="url"
-              name="url"
-              type="url"
-              autoComplete="url"
-              placeholder="https://"
-              className="contact-form__input"
-            />
-          </div>
-
-          {/* メールアドレス */}
-          <div className="contact-form__field">
-            <label className="contact-form__label" htmlFor="email">
-              {fields.email}
-              <span className="contact-form__badge contact-form__badge--required">
-                {fields.required}
-              </span>
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              autoComplete="email"
-              className="contact-form__input"
-            />
-          </div>
-
-          {/* 電話番号 */}
-          <div className="contact-form__field">
-            <label className="contact-form__label" htmlFor="tel">
-              {fields.tel}
-              <span className="contact-form__badge contact-form__badge--optional">
-                {fields.optional}
-              </span>
-            </label>
-            <input
-              id="tel"
-              name="tel"
-              type="tel"
-              autoComplete="tel"
-              className="contact-form__input"
-            />
-          </div>
-
-          {/* お問い合わせ種別 */}
-          <div className="contact-form__field">
-            <label className="contact-form__label" htmlFor="type">
-              {fields.type}
-              <span className="contact-form__badge contact-form__badge--required">
-                {fields.required}
-              </span>
-            </label>
-            <select
-              id="type"
-              name="type"
-              required
-              value={selectedType}
-              onChange={(e) => setSelectedType(e.target.value)}
-              className="contact-form__select"
+        {status === "success" && (
+          <div className="contact-form contact-form__status contact-form__status--success v2-fade">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
             >
-              <option value="" disabled>
-                選択してください
-              </option>
-              {types.map((t) => (
-                <option key={t.value} value={t.value}>
-                  {t.label}
-                </option>
-              ))}
-            </select>
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <h2 className="contact-form__status-title">送信が完了しました</h2>
+            <p className="contact-form__status-text">{contactPage.successMessage}</p>
+            <a href="/" className="contact-form__status-link">
+              トップページへ戻る
+            </a>
           </div>
+        )}
 
-          {/* お問い合わせ内容 */}
-          <div className="contact-form__field">
-            <label className="contact-form__label" htmlFor="message">
-              {fields.message}
-              <span className="contact-form__badge contact-form__badge--required">
-                {fields.required}
-              </span>
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              className="contact-form__textarea"
-            />
-          </div>
+        {showForm && (
+          <form className="contact-form v2-fade" onSubmit={handleSubmit} noValidate>
+            {status === "error" && (
+              <div className="contact-form__alert contact-form__alert--error" role="alert">
+                <strong>送信エラー</strong>
+                <p>{contactPage.errorMessage}</p>
+                {errorDetail && <p className="contact-form__alert-detail">{errorDetail}</p>}
+              </div>
+            )}
 
-          {/* プライバシーポリシー同意 */}
-          <div className="contact-form__privacy">
-            <label className="contact-form__privacy-label">
+            {/* お名前 */}
+            <div className="contact-form__field">
+              <label className="contact-form__label" htmlFor="name">
+                {fields.name}
+                <span className="contact-form__badge contact-form__badge--required">
+                  {fields.required}
+                </span>
+              </label>
               <input
-                type="checkbox"
-                name="privacy"
+                id="name"
+                name="name"
+                type="text"
                 required
-                className="contact-form__checkbox"
+                autoComplete="name"
+                disabled={isSubmitting}
+                className="contact-form__input"
               />
-              <span>
-                <a href="/privacy" target="_blank" rel="noopener" className="contact-form__privacy-link">
-                  プライバシーポリシー
-                </a>
-                {" "}
-                に同意のうえ送信します。
-              </span>
-            </label>
-          </div>
+            </div>
 
-          <div className="contact-form__submit-wrap">
-            <button type="submit" className="contact-form__submit" disabled={submitting}>
-              {fields.submit}
-            </button>
-          </div>
-        </form>
+            {/* 会社名 */}
+            <div className="contact-form__field">
+              <label className="contact-form__label" htmlFor="company">
+                {fields.company}
+                <span className="contact-form__badge contact-form__badge--optional">
+                  {fields.optional}
+                </span>
+              </label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                autoComplete="organization"
+                disabled={isSubmitting}
+                className="contact-form__input"
+              />
+            </div>
+
+            {/* URL */}
+            <div className="contact-form__field">
+              <label className="contact-form__label" htmlFor="url">
+                {fields.url}
+                <span className="contact-form__badge contact-form__badge--optional">
+                  {fields.optional}
+                </span>
+              </label>
+              <input
+                id="url"
+                name="url"
+                type="url"
+                autoComplete="url"
+                placeholder="https://"
+                disabled={isSubmitting}
+                className="contact-form__input"
+              />
+            </div>
+
+            {/* メールアドレス */}
+            <div className="contact-form__field">
+              <label className="contact-form__label" htmlFor="email">
+                {fields.email}
+                <span className="contact-form__badge contact-form__badge--required">
+                  {fields.required}
+                </span>
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                disabled={isSubmitting}
+                className="contact-form__input"
+              />
+            </div>
+
+            {/* 電話番号 */}
+            <div className="contact-form__field">
+              <label className="contact-form__label" htmlFor="tel">
+                {fields.tel}
+                <span className="contact-form__badge contact-form__badge--optional">
+                  {fields.optional}
+                </span>
+              </label>
+              <input
+                id="tel"
+                name="tel"
+                type="tel"
+                autoComplete="tel"
+                disabled={isSubmitting}
+                className="contact-form__input"
+              />
+            </div>
+
+            {/* お問い合わせ種別 */}
+            <div className="contact-form__field">
+              <label className="contact-form__label" htmlFor="type">
+                {fields.type}
+                <span className="contact-form__badge contact-form__badge--required">
+                  {fields.required}
+                </span>
+              </label>
+              <select
+                id="type"
+                name="type"
+                required
+                value={selectedType}
+                onChange={(e) => setSelectedType(e.target.value)}
+                disabled={isSubmitting}
+                className="contact-form__select"
+              >
+                <option value="" disabled>
+                  選択してください
+                </option>
+                {types.map((t) => (
+                  <option key={t.value} value={t.value}>
+                    {t.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* お問い合わせ内容 */}
+            <div className="contact-form__field">
+              <label className="contact-form__label" htmlFor="message">
+                {fields.message}
+                <span className="contact-form__badge contact-form__badge--required">
+                  {fields.required}
+                </span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                disabled={isSubmitting}
+                className="contact-form__textarea"
+              />
+            </div>
+
+            {/* プライバシーポリシー同意 */}
+            <div className="contact-form__privacy">
+              <label className="contact-form__privacy-label">
+                <input
+                  type="checkbox"
+                  name="privacy"
+                  required
+                  disabled={isSubmitting}
+                  className="contact-form__checkbox"
+                />
+                <span>
+                  <a
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener"
+                    className="contact-form__privacy-link"
+                  >
+                    プライバシーポリシー
+                  </a>
+                  {" "}
+                  に同意のうえ送信します。
+                </span>
+              </label>
+            </div>
+
+            {/* ハニーポット（スパムbot対策：人間は見えない） */}
+            <div
+              className="contact-form__honeypot"
+              aria-hidden="true"
+            >
+              <label htmlFor="website">このフィールドは空のままにしてください</label>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
+            <div className="contact-form__submit-wrap">
+              <button
+                type="submit"
+                className="contact-form__submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "送信中..." : fields.submit}
+              </button>
+            </div>
+          </form>
+        )}
       </section>
 
       {/* ===== Offices ===== */}
