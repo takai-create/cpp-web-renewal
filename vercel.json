@@ -2,6 +2,26 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/company", "destination": "/about", "permanent": true },
+    { "source": "/president", "destination": "/about", "permanent": true },
+    { "source": "/recruit", "destination": "/", "permanent": true },
+    { "source": "/sample-page", "destination": "/", "permanent": true },
+    { "source": "/work/management-support", "destination": "/business#dx", "permanent": true },
+    { "source": "/work/hr", "destination": "/business", "permanent": true },
+    { "source": "/work/translation", "destination": "/business", "permanent": true },
+    { "source": "/work/:path*", "destination": "/business", "permanent": true },
+    { "source": "/海外テクノロジー分野レポート", "destination": "/", "permanent": true },
+    { "source": "/sample-post1", "destination": "/", "permanent": true },
+    { "source": "/sample-post2", "destination": "/", "permanent": true },
+    { "source": "/sample-post3", "destination": "/", "permanent": true },
+    { "source": "/sample-post4", "destination": "/", "permanent": true },
+    { "source": "/hello-world", "destination": "/", "permanent": true },
+    { "source": "/category/:path*", "destination": "/", "permanent": true },
+    { "source": "/wp-admin/:path*", "destination": "/", "permanent": false },
+    { "source": "/wp-content/:path*", "destination": "/", "permanent": false },
+    { "source": "/wp-includes/:path*", "destination": "/", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -31,8 +51,12 @@
           "value": "on"
         },
         {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://formspree.io https://api.web3forms.com https://script.google.com https://script.googleusercontent.com; frame-src https://www.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://docs.google.com https://formspree.io https://api.web3forms.com https://script.google.com https://script.googleusercontent.com"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://script.google.com https://script.googleusercontent.com; frame-src https://www.google.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; form-action 'self' https://docs.google.com https://script.google.com https://script.googleusercontent.com"
         }
       ]
     }
