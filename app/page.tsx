@@ -18,6 +18,7 @@ export default function HomeV2() {
   const [paused, setPaused] = useState(false);
 
   const next = useCallback(() => setCurrent((c) => (c + 1) % hero.slides.length), []);
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + hero.slides.length) % hero.slides.length), []);
 
   useEffect(() => {
     if (paused) return;
@@ -98,6 +99,13 @@ export default function HomeV2() {
             </a>
           </div>
         </div>
+
+        <button className="v2-hero__arrow v2-hero__arrow--prev" onClick={prev} aria-label="前のスライド">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button className="v2-hero__arrow v2-hero__arrow--next" onClick={next} aria-label="次のスライド">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
 
         <div className="v2-hero__dots">
           {hero.slides.map((_, i) => (

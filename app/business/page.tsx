@@ -66,7 +66,7 @@ export default function BusinessPage() {
                 <p className="biz-service__category">{svc.category}</p>
                 <h3 className="biz-service__headline">{svc.headline}</h3>
                 <p className="biz-service__desc">{svc.description}</p>
-                <a href={svc.link} className="biz-service__link">
+                <a href={svc.link} className="biz-service__link" {...(svc.link.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                   {svc.linkLabel}
                   <svg
                     width="14"

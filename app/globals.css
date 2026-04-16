@@ -452,34 +452,61 @@
 }
 
 .v2-hero__dot {
-  width: 32px;
-  height: 3px;
+  width: 36px;
+  height: 6px;
   border: none;
-  border-radius: 2px;
-  background: rgba(255,255,255,0.3);
+  border-radius: 3px;
+  background: rgba(255,255,255,0.35);
   cursor: pointer;
   transition: all 0.3s;
   padding: 0;
 }
 .v2-hero__dot--active {
   background: #fff;
-  width: 48px;
+  width: 52px;
 }
+
+/* ── Hero Arrows ── */
+.v2-hero__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1.25rem;
+  backdrop-filter: blur(4px);
+}
+.v2-hero__arrow:hover {
+  background: rgba(255,255,255,0.25);
+}
+.v2-hero__arrow--prev { left: 1.25rem; }
+.v2-hero__arrow--next { right: 1.25rem; }
 
 /* ── Buttons ── */
 .v2-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem 1.75rem;
+  padding: 1rem 2.25rem;
   font-family: var(--v2-font);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 700;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.2s;
   border: none;
   cursor: pointer;
+  min-height: 48px;
 }
 
 .v2-btn--primary {

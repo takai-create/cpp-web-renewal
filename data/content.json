@@ -20,9 +20,9 @@
         "copy": "AIが動き、人が深める。",
         "copyParts": [
           { "text": "AI", "emphasis": true },
-          { "text": "が動き、" },
+          { "text": " が動き、" },
           { "text": "人", "emphasis": true },
-          { "text": "が深める。" }
+          { "text": " が深める。" }
         ],
         "sub": "テクノロジーの力を、人の知恵で事業に変える。\nCrowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。"
       },
@@ -419,7 +419,7 @@
         "news": [
           { "date": "2025/03/27", "title": "First Touch by Talk Insights リリースのお知らせ" }
         ],
-        "link": "/contact?type=talk-insights",
+        "link": "https://www.talk-insights.com/",
         "linkLabel": "詳細はこちら"
       },
       {
