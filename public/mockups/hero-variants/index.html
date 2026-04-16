@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Slide 1 - Variant Comparison</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #f0f0f0;
+    color: #222;
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 24px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .nav span { font-weight: 700; margin-right: 12px; font-size: 14px; }
+  .nav a {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 6px;
+    background: #e8e8e8;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .nav a:hover, .nav a.active { background: #004ea2; color: #fff; }
+  .nav a.recommended { border: 2px solid #004ea2; }
+
+  .variant-label {
+    max-width: 1280px;
+    margin: 40px auto 16px;
+    padding: 0 24px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .variant-label .tag {
+    display: inline-block;
+    background: #004ea2;
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .variant-desc {
+    max-width: 1280px;
+    margin: 0 auto 16px;
+    padding: 0 24px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* ── Hero Common ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    width: 100%;
+  }
+  .hero__title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0;
+    margin: 0 0 1.25rem;
+    line-height: 1.35;
+    letter-spacing: 0.04em;
+  }
+  .hero__title .emphasis {
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 700;
+  }
+  .hero__title .normal {
+    font-size: clamp(1.5rem, 3.6vw, 2.4rem);
+    font-weight: 700;
+  }
+  .hero__sub {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.9;
+    margin: 0 0 2rem;
+    max-width: 520px;
+  }
+  .hero__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  /* ── Variant A: White BG ── */
+  .hero--a { background: #ffffff; }
+  .hero--a .hero__title .emphasis { color: #0a1a2f; }
+  .hero--a .hero__title .normal { color: #444; }
+  .hero--a .hero__sub { color: #666; }
+  .hero--a .hero__accent-line {
+    width: 60px;
+    height: 2px;
+    background: #004ea2;
+    margin-bottom: 1.5rem;
+  }
+  .hero--a .btn--primary {
+    background: #004ea2;
+    color: #fff;
+    border: 2px solid #004ea2;
+  }
+  .hero--a .btn--ghost {
+    background: transparent;
+    color: #004ea2;
+    border: 2px solid #004ea2;
+  }
+
+  /* ── Variant B: Black BG ── */
+  .hero--b { background: #0a0a0a; }
+  .hero--b .hero__title .emphasis { color: #4a9eff; }
+  .hero--b .hero__title .normal { color: rgba(255,255,255,0.7); }
+  .hero--b .hero__sub { color: rgba(255,255,255,0.55); }
+  .hero--b .btn--primary {
+    background: #004ea2;
+    color: #fff;
+    border: 2px solid #004ea2;
+  }
+  .hero--b .btn--ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  /* ── Variant C: Curve SVG ── */
+  .hero--c {
+    background: linear-gradient(135deg, #0a1a2f 0%, #083163 50%, #004ea2 100%);
+  }
+  .hero--c .hero__title .emphasis { color: #fff; }
+  .hero--c .hero__title .normal { color: rgba(255,255,255,0.65); }
+  .hero--c .hero__sub { color: rgba(255,255,255,0.55); }
+  .hero--c .btn--primary {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(4px);
+  }
+  .hero--c .btn--ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    border: 2px solid rgba(255,255,255,0.25);
+  }
+  .hero--c svg.bg-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+  }
+
+  /* ── Variant D: Grid Lines ── */
+  .hero--d { background: #fafafa; }
+  .hero--d .hero__title .emphasis { color: #0a1a2f; }
+  .hero--d .hero__title .normal { color: #555; }
+  .hero--d .hero__sub { color: #777; }
+  .hero--d .btn--primary {
+    background: #004ea2;
+    color: #fff;
+    border: 2px solid #004ea2;
+  }
+  .hero--d .btn--ghost {
+    background: transparent;
+    color: #004ea2;
+    border: 2px solid #ccc;
+  }
+  .hero--d svg.bg-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.15;
+  }
+
+  /* ── Variant E: Gradient + Noise ── */
+  .hero--e {
+    background: linear-gradient(135deg, #0a1a2f 0%, #083163 50%, #004ea2 100%);
+  }
+  .hero--e::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    z-index: 0;
+    opacity: 0.5;
+  }
+  .hero--e .hero__title .emphasis { color: #fff; }
+  .hero--e .hero__title .normal { color: rgba(255,255,255,0.6); }
+  .hero--e .hero__sub { color: rgba(255,255,255,0.5); }
+  .hero--e .btn--primary {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(4px);
+  }
+  .hero--e .btn--ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 60px 24px;
+    font-size: 13px;
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    .hero { min-height: 500px; max-height: 700px; }
+    .hero__content { padding: 0 1.5rem; }
+    .hero__title .emphasis { font-size: clamp(1.8rem, 8vw, 2.8rem) !important; }
+    .hero__title .normal { font-size: clamp(1.1rem, 5vw, 1.8rem) !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span>Hero Slide 1 案:</span>
+  <a href="#variant-a" class="recommended">A. 白背景（有力）</a>
+  <a href="#variant-b">B. 黒背景</a>
+  <a href="#variant-c">C. 曲線SVG</a>
+  <a href="#variant-d">D. 直線グリッド</a>
+  <a href="#variant-e">E. グラデーション</a>
+</nav>
+
+<!-- ==================== VARIANT A ==================== -->
+<div id="variant-a">
+  <p class="variant-label">案A. 白背景 × 黒文字（ミニマル）<span class="tag">有力候補</span></p>
+  <p class="variant-desc">画像ゼロで即デプロイ可能。堅実・誠実な印象。ブランドブルーのアクセントラインで締まりを出す。</p>
+  <section class="hero hero--a">
+    <div class="hero__content">
+      <div class="hero__accent-line"></div>
+      <h1 class="hero__title">
+        <span class="emphasis">AI</span><span class="normal">が動き、</span><span class="emphasis">人</span><span class="normal">が深める。</span>
+      </h1>
+      <p class="hero__sub">
+        テクノロジーの力を、人の知恵で事業に変える。<br>
+        Crowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--ghost">事業を見る</a>
+        <a class="btn btn--primary">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== VARIANT B ==================== -->
+<div id="variant-b">
+  <p class="variant-label">案B. 黒背景 × 白文字</p>
+  <p class="variant-desc">先進性・テック感。「AI」「人」をブランドブルーで際立たせ、コピーの対比構造を強調。</p>
+  <section class="hero hero--b">
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="emphasis">AI</span><span class="normal">が動き、</span><span class="emphasis">人</span><span class="normal">が深める。</span>
+      </h1>
+      <p class="hero__sub">
+        テクノロジーの力を、人の知恵で事業に変える。<br>
+        Crowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--ghost">事業を見る</a>
+        <a class="btn btn--primary">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== VARIANT C ==================== -->
+<div id="variant-c">
+  <p class="variant-label">案C. 抽象曲線SVG（ネイビーグラデ背景）</p>
+  <p class="variant-desc">左から機械的な直線が徐々に有機的な波へモーフィング。「AIが動き→人が深める」をビジュアルで抽象表現。</p>
+  <section class="hero hero--c">
+    <svg class="bg-art" viewBox="0 0 1440 800" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Mechanical lines morphing into organic curves -->
+      <path d="M0 200 Q200 200 400 200 Q600 180 800 240 Q1000 300 1200 220 Q1350 180 1440 260" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"/>
+      <path d="M0 300 Q200 300 400 300 Q600 260 800 340 Q1000 420 1200 310 Q1350 250 1440 380" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" fill="none"/>
+      <path d="M0 400 Q200 400 400 400 Q600 370 800 450 Q1000 530 1200 400 Q1350 340 1440 480" stroke="rgba(255,255,255,0.35)" stroke-width="1" fill="none"/>
+      <path d="M0 500 Q200 500 400 500 Q600 460 800 550 Q1000 640 1200 500 Q1350 430 1440 580" stroke="rgba(255,255,255,0.25)" stroke-width="0.8" fill="none"/>
+      <path d="M0 600 Q200 600 400 600 Q600 560 800 650 Q1000 730 1200 610 Q1350 540 1440 680" stroke="rgba(255,255,255,0.2)" stroke-width="0.6" fill="none"/>
+      <!-- Subtle circles -->
+      <circle cx="1100" cy="300" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none"/>
+      <circle cx="1200" cy="350" r="80" stroke="rgba(255,255,255,0.06)" stroke-width="0.8" fill="none"/>
+    </svg>
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="emphasis">AI</span><span class="normal">が動き、</span><span class="emphasis">人</span><span class="normal">が深める。</span>
+      </h1>
+      <p class="hero__sub">
+        テクノロジーの力を、人の知恵で事業に変える。<br>
+        Crowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--ghost">事業を見る</a>
+        <a class="btn btn--primary">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== VARIANT D ==================== -->
+<div id="variant-d">
+  <p class="variant-label">案D. 直線グリッド（白背景）</p>
+  <p class="variant-desc">左半分：規則的なグリッド（AI=構造）。右半分：ゆらぐ線（人=深化）。ミニマルだが意味のある演出。</p>
+  <section class="hero hero--d">
+    <svg class="bg-art" viewBox="0 0 1440 800" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left: structured grid -->
+      <line x1="100" y1="0" x2="100" y2="800" stroke="#004ea2" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="800" stroke="#004ea2" stroke-width="1"/>
+      <line x1="300" y1="0" x2="300" y2="800" stroke="#004ea2" stroke-width="1"/>
+      <line x1="400" y1="0" x2="400" y2="800" stroke="#004ea2" stroke-width="1"/>
+      <line x1="500" y1="0" x2="500" y2="800" stroke="#004ea2" stroke-width="1"/>
+      <line x1="600" y1="0" x2="600" y2="800" stroke="#004ea2" stroke-width="0.8"/>
+      <line x1="0" y1="100" x2="700" y2="100" stroke="#004ea2" stroke-width="0.5"/>
+      <line x1="0" y1="200" x2="700" y2="200" stroke="#004ea2" stroke-width="0.5"/>
+      <line x1="0" y1="300" x2="700" y2="300" stroke="#004ea2" stroke-width="0.5"/>
+      <line x1="0" y1="400" x2="700" y2="400" stroke="#004ea2" stroke-width="0.5"/>
+      <line x1="0" y1="500" x2="700" y2="500" stroke="#004ea2" stroke-width="0.5"/>
+      <line x1="0" y1="600" x2="700" y2="600" stroke="#004ea2" stroke-width="0.5"/>
+      <line x1="0" y1="700" x2="700" y2="700" stroke="#004ea2" stroke-width="0.5"/>
+      <!-- Right: organic/wavy lines -->
+      <path d="M700 100 Q800 80 900 120 Q1000 160 1100 100 Q1200 60 1300 130 Q1400 170 1440 120" stroke="#004ea2" stroke-width="0.8" fill="none"/>
+      <path d="M700 200 Q820 170 920 230 Q1020 290 1120 210 Q1220 150 1320 240 Q1400 290 1440 230" stroke="#004ea2" stroke-width="0.8" fill="none"/>
+      <path d="M700 300 Q830 260 930 330 Q1030 400 1130 310 Q1230 240 1330 350 Q1400 400 1440 340" stroke="#004ea2" stroke-width="0.8" fill="none"/>
+      <path d="M700 400 Q810 370 920 440 Q1030 510 1130 420 Q1230 340 1330 440 Q1400 490 1440 440" stroke="#004ea2" stroke-width="0.7" fill="none"/>
+      <path d="M700 500 Q820 460 930 540 Q1040 620 1140 530 Q1240 440 1340 540 Q1400 590 1440 540" stroke="#004ea2" stroke-width="0.6" fill="none"/>
+      <path d="M700 600 Q830 560 940 640 Q1050 720 1150 630 Q1250 540 1350 640 Q1400 690 1440 640" stroke="#004ea2" stroke-width="0.5" fill="none"/>
+      <path d="M700 700 Q820 670 930 740 Q1040 790 1140 720 Q1240 650 1340 740 Q1400 780 1440 730" stroke="#004ea2" stroke-width="0.4" fill="none"/>
+    </svg>
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="emphasis">AI</span><span class="normal">が動き、</span><span class="emphasis">人</span><span class="normal">が深める。</span>
+      </h1>
+      <p class="hero__sub">
+        テクノロジーの力を、人の知恵で事業に変える。<br>
+        Crowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--ghost">事業を見る</a>
+        <a class="btn btn--primary">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== VARIANT E ==================== -->
+<div id="variant-e">
+  <p class="variant-label">案E. グラデーション + ノイズ</p>
+  <p class="variant-desc">既存のネイビー→ブルーグラデーションに粒子ノイズを薄く重ね。2,3枚目の写真とコントラストが立つ。</p>
+  <section class="hero hero--e">
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="emphasis">AI</span><span class="normal">が動き、</span><span class="emphasis">人</span><span class="normal">が深める。</span>
+      </h1>
+      <p class="hero__sub">
+        テクノロジーの力を、人の知恵で事業に変える。<br>
+        Crowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--ghost">事業を見る</a>
+        <a class="btn btn--primary">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="footer">
+  Hero Slide 1 Variant Comparison &mdash; Crowd Power Partners
+</div>
+
+<script>
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('[id^="variant-"]');
+  const links = document.querySelectorAll('.nav a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const target = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+        if (target) target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

@@ -16,8 +16,14 @@
   "hero": {
     "slides": [
       {
-        "image": "/images/photos/hero/hero-office.jpg",
+        "variant": "gradient-noise",
         "copy": "AIが動き、人が深める。",
+        "copyParts": [
+          { "text": "AI", "emphasis": true },
+          { "text": "が動き、" },
+          { "text": "人", "emphasis": true },
+          { "text": "が深める。" }
+        ],
         "sub": "テクノロジーの力を、人の知恵で事業に変える。\nCrowd Power Partnersは、DX・AI・場の力で新しい働き方を創造します。"
       },
       {
