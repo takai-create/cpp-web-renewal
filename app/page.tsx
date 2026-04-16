@@ -39,13 +39,19 @@ export default function HomeV2() {
         {hero.slides.map((s, i) => (
           <div
             key={i}
-            className="v2-hero__bg"
-            style={{ backgroundImage: `url(${s.image})`, opacity: i === current ? 1 : 0 }}
+            className={`v2-hero__bg ${s.inlineImage ? "v2-hero__bg--solid" : ""}`}
+            style={{
+              backgroundImage: s.inlineImage ? "none" : `url(${s.image})`,
+              opacity: i === current ? 1 : 0,
+            }}
           />
         ))}
-        {!slide.noOverlay && <div className="v2-hero__overlay" />}
+        {!slide.inlineImage && <div className="v2-hero__overlay" />}
 
-        <div className="v2-hero__content" key={current}>
+        <div
+          className={`v2-hero__content ${slide.inlineImage ? "v2-hero__content--inline" : ""}`}
+          key={current}
+        >
           <h1 className="v2-hero__title">{slide.copy}</h1>
           <p className="v2-hero__sub">
             {slide.sub.split("\n").map((line, i) => (
@@ -63,6 +69,11 @@ export default function HomeV2() {
               </span>
             ))}
           </p>
+          {slide.inlineImage && (
+            <div className="v2-hero__inline-image">
+              <img src={slide.image} alt={slide.copy} />
+            </div>
+          )}
           <div className="v2-hero__actions">
             <a href="#business" className="v2-btn v2-btn--ghost">
               {hero.ctaSecondary}

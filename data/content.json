@@ -24,7 +24,7 @@
         "image": "/images/photos/service/firsttouch-hero-both.jpg",
         "copy": "出会いを、商談に変える。",
         "sub": "First Touch by Talk Insightsは、名刺交換後の30秒から\nAIが商談の入り口を自動で創り出します。",
-        "noOverlay": true
+        "inlineImage": true
       },
       {
         "image": "/images/photos/coworking/cwbenten-hero.jpg",
@@ -39,7 +39,7 @@
   "philosophy": {
     "label": "Message",
     "paragraphs": [
-      "クラウドパワーパートナーズは、意欲ある個人と、その力を事業に活かしたい組織、双方のパートナーとして2013年に創業しました。",
+      "クラウドパワーパートナーズは、\n意欲ある個人と、その力を事業に活かしたい組織、双方のパートナーとして2013年に創業しました。",
       "デジタルの力で「働く」を変え、「事業」を変える仕組みをつくり続けてきた私たちは、今、AIを核とした独自のプラットフォームを開発し、顧客の事業成長・業績向上により早く、より効果的に貢献しています。"
     ],
     "link": "私たちについて"
