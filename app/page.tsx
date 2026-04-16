@@ -4,7 +4,14 @@ import { useEffect, useState, useCallback } from "react";
 import content from "../data/content.json";
 import FTMockup from "./components/FTMockup";
 
-const { hero, philosophy, businessSection, numbers, news, cta } = content;
+const { hero, philosophy, businessSection, numbers, news, cta } = content as {
+  hero: {
+    slides: Array<{ image?: string; copy: string; sub: string; inlineImage?: boolean; variant?: string; copyParts?: Array<{ text: string; emphasis?: boolean }> }>;
+    ctaPrimary: string;
+    ctaSecondary: string;
+  };
+  [key: string]: unknown;
+} & typeof content;
 
 export default function HomeV2() {
   const [current, setCurrent] = useState(0);
