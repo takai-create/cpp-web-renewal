@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import content from "../data/content.json";
+import FTMockup from "./components/FTMockup";
 
 const { hero, philosophy, businessSection, numbers, news, cta } = content;
 
@@ -39,20 +40,31 @@ export default function HomeV2() {
         {hero.slides.map((s, i) => (
           <div
             key={i}
-            className={`v2-hero__bg ${s.inlineImage ? "v2-hero__bg--solid" : ""}`}
+            className={`v2-hero__bg ${s.inlineImage ? "v2-hero__bg--solid" : ""} ${s.variant === "gradient-noise" ? "v2-hero__bg--gradient-noise" : ""}`}
             style={{
-              backgroundImage: s.inlineImage ? "none" : `url(${s.image})`,
+              ...(s.inlineImage || s.variant ? {} : { backgroundImage: `url(${s.image})` }),
               opacity: i === current ? 1 : 0,
             }}
           />
         ))}
-        {!slide.inlineImage && <div className="v2-hero__overlay" />}
+        {!slide.inlineImage && !slide.variant && <div className="v2-hero__overlay" />}
 
         <div
           className={`v2-hero__content ${slide.inlineImage ? "v2-hero__content--inline" : ""}`}
           key={current}
         >
-          <h1 className="v2-hero__title">{slide.copy}</h1>
+          <h1 className="v2-hero__title">
+            {slide.copyParts
+              ? slide.copyParts.map((part: { text: string; emphasis?: boolean }, idx: number) => (
+                  <span
+                    key={idx}
+                    className={part.emphasis ? "v2-hero__title-emphasis" : "v2-hero__title-normal"}
+                  >
+                    {part.text}
+                  </span>
+                ))
+              : slide.copy}
+          </h1>
           <p className="v2-hero__sub">
             {slide.sub.split("\n").map((line, i) => (
               <span key={i}>
@@ -69,11 +81,7 @@ export default function HomeV2() {
               </span>
             ))}
           </p>
-          {slide.inlineImage && (
-            <div className="v2-hero__inline-image">
-              <img src={slide.image} alt={slide.copy} />
-            </div>
-          )}
+          {slide.inlineImage && <div className="v2-hero__mockup-wrap"><FTMockup /></div>}
           <div className="v2-hero__actions">
             <a href="#business" className="v2-btn v2-btn--ghost">
               {hero.ctaSecondary}
