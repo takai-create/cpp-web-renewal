@@ -414,7 +414,7 @@
         "features": [
           { "title": "音声メモから自動要約", "desc": "名刺交換後の短い会話を録音し、AIが要点を即座にまとめます。" },
           { "title": "フォローアップ自動生成", "desc": "要約をもとに、パーソナライズされたフォローメールの下書きを生成します。" },
-          { "title": "無料プラン／月額900円／Enterpriseプラン", "desc": "個人事業主や小規模チームでも導入しやすい価格設計です。（kintone連携機能）" }
+          { "title": "無料プラン／月額900円／for Teamプラン", "desc": "個人事業主や小規模チームでも導入しやすい価格設計です。（kintone連携機能）" }
         ],
         "image": "/images/photos/service/firsttouch-biz.jpg",
         "news": [

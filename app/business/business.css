@@ -188,6 +188,30 @@
   color: var(--v2-brand);
 }
 
+/* First Touch のCTAを目立たせる（塗りの青ボタン + ホバーで浮き上がり） */
+#talk-insights .biz-service__link {
+  background: var(--v2-brand);
+  border-color: var(--v2-brand);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 78, 162, 0.25);
+}
+
+#talk-insights .biz-service__link svg {
+  transition: transform 0.2s;
+}
+
+#talk-insights .biz-service__link:hover {
+  background: #003c7e;
+  border-color: #003c7e;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 78, 162, 0.35);
+}
+
+#talk-insights .biz-service__link:hover svg {
+  transform: translate(2px, -2px);
+}
+
 /* ── Features ── */
 .biz-service__features {
   display: flex;
